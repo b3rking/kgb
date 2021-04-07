@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    color: #777;
+}
+
+.logo a {
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-bar {
+    background-color: rgb(20, 100, 20);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+}
+
+.nav-bar-link a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: .3rem;
+    padding: .8rem 1.5rem;
+    transition: all .4s;
+}
+
+.nav-bar-link a:hover {
+    background-color: rgba(255, 255, 255, 0.178);
+}
+
+.nav-bar-link a:visited {
+    color: rgba(255, 255, 255, 0.493);
+}
+
+.first-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-bar-link {
+    margin: 0 5rem;
+}
+
+.search {
+    border: none;
+    padding: .8rem;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    outline: none;
+}
+
+.search:active {
+    outline: none;
+}
+
+.submit-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    margin: 0 1rem 0;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 2rem auto 1rem;
+}
+
+.recent_post {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.recent_post, .kgb_members {
+    border: none;
+    box-shadow: 0px 0px 2rem 2px rgba(128, 128, 128, 0.2);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+}
+
+.kgb_members {
+    width: 30%;
+}
+
+.kgb_members_header {
+    padding: 1rem 0;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user:not(:last-child) {
+    border-bottom: .15rem solid rgba(119, 119, 119, 0.2);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-data img {
+    width: 5rem;
+}
+
+.user-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-data_names {
+    font-size: 1.5rem;
+    margin: .8rem 2rem;
+}
+
+.link {
+    font-size: small;
+}
+
+.link a {
+    text-decoration: none;
+    color: gray;
+    text-transform: capitalize;
+    transition: all .5s;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.link a:hover {
+    background-color: rgba(128, 128, 128, 0.356);
+    padding: 1rem;
+    color: black;
+    border-radius: 3px;
+}
+
+.username, .fullname {
+    margin: .5rem 0;
+}
+
+.search_box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    color: #777;
+}
+
+.search_box input {
+    background-color: transparent;
+    border-right: 1px solid #777;
+    border-radius: 0;
+}
+
+/* code to remove the x from the search input!!! */
+
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+
+/***** b3rking - media queries ******/
+
+@media (max-width: 950px) {
+    .body-container {
+        flex-direction: column;
+    }
+
+    .user {
+        width: 20%;
+    }
+
+    .kgb_members {
+        width: 100%;
+        margin: 0 0 5rem;
+        display: flex;
+        flex-direction: row;
+        overflow-x: hidden;
+    }
+
+    .link {
+        display: none;
+    }
+
+    .user:not(:last-child) {
+        border-bottom: red;
+    }
+
+    .recent_post {
+        width: 100%;
+    }
+}
