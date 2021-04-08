@@ -4,7 +4,7 @@
     --main-color: #01497C;
     --default-color: #777;
     --text-color: #fff;
-    --primary-color: #2C7DA0;
+    --primary-color: #19a2dd;
     --success: rgba(0, 128, 0, 0.2);
     --success-text: rgb(0, 50, 0);
     --errors: rgba(255, 0, 0, 0.1);
@@ -411,7 +411,9 @@ body{
     pointer-events:none;
     transition: .5s;
 }
-.inputBox input:focus~label,.inputBox input:valid~label{
+.inputBox input:focus~label,
+.inputBox input:valid~label,
+.inputBox input:empty~label {
     top:-20px;
     left:0;
     color: var(--default-color);
@@ -430,8 +432,9 @@ body{
     width: 150px;
     text-decoration: none;
     font-size: 1.5rem;
-    background-color: #03a9f4;
-    transition: all .5s;
+    font-family: inherit;
+    background-color: var(--main-color);
+    transition: all .3s;
     font-weight: bold;
 }
 .pega_form .button_form{
@@ -439,8 +442,8 @@ body{
 }
 .pega_form button:hover {
     background-color: rgba(119, 119, 119, 0.2);
-    color: hotpink;
-    border-left: 20px solid hotpink;
+    color: var(--main-color);
+    border-left: 10px solid var(--main-color);
     transition: all .6s;
 }
 
