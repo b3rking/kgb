@@ -347,12 +347,13 @@ body{
 /***** css for form by pegaus03 **/
 
 .pega_form{ 
+    margin: 5rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 400px;
-    padding: 35px;
+    width: 40rem;
+    padding: 2rem 3.5rem;
     box-sizing: border-box;
     border: none;
     box-shadow: 0px 0px 2rem 2px rgb(128 128 128 / 20%);
@@ -369,7 +370,7 @@ body{
 }
 
 .pega_form p{
-   margin-top: 3rem;
+   margin-top: 2rem;
    text-align: center;
    font-size: 14px;
 }
@@ -386,7 +387,7 @@ body{
 .pega_form .inputBox input{
     width: 100%;
     padding: 10px 0;
-    font-size: 16px;
+    font-size: 1.7rem;
     color: var(--default-color);
     margin-bottom:30px ;
     border:none;
@@ -397,11 +398,8 @@ body{
 }
 .pega_form .inputBox label{
     position: absolute;
-    top:0;
-    letter-spacing: 1px;
-    left: 0;
+    font-size: 2rem;
     padding: 10px 0;
-    font-size: 16px;
     color: var(--default-color);
     pointer-events:none;
     transition: .5s;
