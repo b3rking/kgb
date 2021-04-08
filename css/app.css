@@ -157,7 +157,7 @@ html {
     font-size: small;
 }
 
-.link a {
+.link a, p a {
     color: gray;
     text-transform: capitalize;
     transition: all .5s;
@@ -343,16 +343,9 @@ body{
      margin: 30px 5px;
      float: right;
 }
+
 /***** css for form by pegaus03 **/
-/*
-.body_form{
-    margin: 0;
-    padding: 0;
-    background: rosybrown;
-    background: url(../img/o.png);
-    background-size: cover;
-}
-*/
+
 .pega_form{ 
     position: absolute;
     top: 50%;
@@ -371,10 +364,12 @@ body{
     text-align: center;
 }
 
+.pega_form p a {
+    color: var(--main-color);
+}
+
 .pega_form p{
-   margin-top: 40px;
-   color: #03a9f4;
-   font-family:fantasy;
+   margin-top: 3rem;
    text-align: center;
    font-size: 14px;
 }
@@ -446,6 +441,3 @@ body{
     border-left: 10px solid var(--main-color);
     transition: all .6s;
 }
-
-
-
