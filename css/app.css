@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --main-color: #01497C;
+    --default-color: #777;
+    --text-color: #fff;
+    --primary-color: #2C7DA0;
+    --success: rgba(0, 128, 0, 0.2);
+    --success-text: rgb(0, 50, 0);
+    --errors: rgba(255, 0, 0, 0.1);
+    --errors-text: rgb(50, 0, 0);
+    --warnings: rgba(255, 255, 0, 0.2);
+    --warnings-text: rgb(50, 50, 0);
+}
 
 * {
     margin: 0;
@@ -11,19 +23,20 @@ html {
     font-size: 10px;
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
-    color: #777;
+    color: var(--default-color);
 }
 
 .logo a {
     font-size: 2rem;
     font-weight: 700;
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
 }
 
+
 .nav-bar {
-    background-color: rgb(20, 100, 20);
-    color: white;
+    background-color: var(--main-color);
+    color: var(--text-color);
     display: flex;
     justify-content: space-between;
     padding: 1rem 1rem;
@@ -31,7 +44,7 @@ html {
 
 .nav-bar-link a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     font-size: 1.5rem;
     border-radius: .3rem;
     padding: .8rem 1.5rem;
@@ -74,7 +87,7 @@ html {
     background-color: transparent;
     font-size: 1.5rem;
     font-family: 'Quicksand', sans-serif;
-    color: white;
+    color: var(--text-color);
     margin: 0 1rem 0;
 }
 
@@ -145,7 +158,6 @@ html {
 }
 
 .link a {
-    text-decoration: none;
     color: gray;
     text-transform: capitalize;
     transition: all .5s;
@@ -158,6 +170,7 @@ html {
     padding: 1rem;
     color: black;
     border-radius: 3px;
+    text-decoration: none;
 }
 
 .username, .fullname {
@@ -169,17 +182,17 @@ html {
     flex-direction: row;
     align-items: center;
     width: 100%;
-    background-color: white;
+    background-color: var(--text-color);
     border-radius: 5px;
 }
 
 .submit-btn {
-    color: #777;
+    color: var(--default-color);
 }
 
 .search_box input {
     background-color: transparent;
-    border-right: 1px solid #777;
+    border-right: 1px solid var(--default-color);
     border-radius: 0;
 }
 
@@ -224,3 +237,212 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         width: 100%;
     }
 }
+/** Pegaus03 start at 00:20 06/04/2021**/
+
+body{
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 400px){
+    .Post_details,.diary_interface{
+        max-width: 350px;
+    }
+}
+@media (min-width: 600px){
+.Post_details,.diary_interface{
+    max-width: 570px;
+}
+}
+@media (min-width: 876px){
+.Post_details,.diary_interface{
+    max-width: 800px;
+}
+}
+@media (min-width: 950px){
+    .Post_details,.diary_interface{
+        max-width: 900px;
+    }
+}
+@media (max-width:600px){
+    .Post_details,.diary_interface{
+        height:240px;
+    }
+    .Post_details img{
+        position: absolute;
+        top: 40px;
+    }
+    .Post_details a{
+      display: block;
+      position: absolute;
+      bottom: 10px;
+      right:58%;
+   }
+}
+.Post_details,.diary_interface{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: var(--text-color);
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border: none;
+    box-shadow: 0px 0px 2rem 2px rgb(128 128 128 / 20%);
+    border-radius: .5rem;
+    padding:17px;
+    position: relative;
+}
+.Post_details img{
+    border-radius: 50% 50%;
+}
+.post_textes{
+    position: absolute;
+    margin: 0 0 0 180px;
+    top:15px;
+    justify-content: center;
+    display: block;
+    height: inherit;
+}
+.diary_interface{
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding:16px;
+    height: 220px;
+}
+.title_di{
+    border-bottom: 2px solid rgba(119, 119, 119, 0.2);
+    padding:5px;
+}
+.boutons a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: .3rem;
+    padding: .8rem 1.5rem;
+    background-color: rgb(20, 100, 20);
+    transition: all .4s;
+    color: var(--text-color);
+    font-weight: 500px;
+}
+.borderf{
+    padding:16px;
+    border-bottom: 2px solid rgba(119, 119, 119, 0.2);
+}
+
+.boutons a:hover {
+    background-color: rgba(119, 119, 119, 0.2);
+    color: hotpink;
+    border-right: 20px solid hotpink;
+    transition: all .5s;
+}
+.boutons{
+     margin: 30px 5px;
+     float: right;
+}
+/***** css for form by pegaus03 **/
+/*
+.body_form{
+    margin: 0;
+    padding: 0;
+    background: rosybrown;
+    background: url(../img/o.png);
+    background-size: cover;
+}
+*/
+.pega_form{ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    padding: 35px;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: 0px 0px 2rem 2px rgb(128 128 128 / 20%);
+    border-radius: .5rem;   
+}
+.pega_form h1{
+    margin: 0 0 30px;
+    padding: 0px;
+    text-align: center;
+}
+
+.pega_form p{
+   margin-top: 40px;
+   color: #03a9f4;
+   font-family:fantasy;
+   text-align: center;
+   font-size: 14px;
+}
+.pega_form img{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50% 50% solid black;
+}
+.pega_form .inputBox{
+    position: relative;
+}
+.pega_form .inputBox input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--default-color);
+    margin-bottom:30px ;
+    border:none;
+    letter-spacing: 1px;
+    outline: none;
+    background: transparent;
+    border-bottom: 1.7px solid rgba(119, 119, 119, 0.2);
+}
+.pega_form .inputBox label{
+    position: absolute;
+    top:0;
+    letter-spacing: 1px;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--default-color);
+    pointer-events:none;
+    transition: .5s;
+}
+.inputBox input:focus~label,.inputBox input:valid~label{
+    top:-20px;
+    left:0;
+    color: var(--default-color);
+    font-size: 12px;
+}
+.pega_form button{
+    margin-top: 15px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    padding: 08px 10px;
+    margin-left: 6px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: #03a9f4;
+    transition: all .5s;
+    font-weight: bold;
+}
+.pega_form .button_form{
+    text-align: center;
+}
+.pega_form button:hover {
+    background-color: rgba(119, 119, 119, 0.2);
+    color: hotpink;
+    border-left: 20px solid hotpink;
+    transition: all .6s;
+}
+
+
+
