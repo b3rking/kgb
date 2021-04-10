@@ -1,19 +1,4 @@
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.82.0">
-    <title>Kgb Diary</title>
-    <!-- Bootstrap core CSS -->
-<link href="../css/app.css" rel="stylesheet">
-
-<meta name="theme-color" content="#7952b3">
-
-  </head>
+<?php include "starter/header.php"; ?>
   <body>   
     <nav>
         <div class="nav-bar">
@@ -65,6 +50,7 @@
         <a href="">Post</a>
       </div>
     </div>
+    <?php include "starter/footer.php"; ?>
   </div>
 </main>
   </body>
