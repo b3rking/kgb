@@ -9,7 +9,7 @@
   <meta name="keywords" content="kgb ult team, kgb burundi, kgb developers team">
   <meta name="author" content="B3rking, pegasus03, and other contributors">
   <title>KGB Team - Official Website</title>
-  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="css/app.css">
 
   <!-- the uncompressed version to delete after lauching -->
 

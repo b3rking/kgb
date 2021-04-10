@@ -70,7 +70,7 @@
             <div class="button_form">
                 <button name="sign-in" type="submit">Sign Up</button>
             </div>
-            <p>Already a member?<a href="register" title="click here to create an account">Get in</a></p>
+            <p>Already a member?<a href="login.php" title="click here to create an account">Get in</a></p>
         </form>
     </section>
     <div class="footer">
