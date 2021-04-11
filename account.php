@@ -1,24 +1,6 @@
-<?php include "starter/header.php"; ?>
-  <body>   
-    <nav>
-        <div class="nav-bar">
-            <div class="first-menu">
-              <div class="logo">
-                <a href="index.html">KGB Team</a>
-              </div>
-              <div class="nav-bar-link">
-                <a href="index.html">Home</a>
-                <a href="diary.html">Diary</a>
-                <a href="account.html">Account</a>
-              </div>
-            </div>
-            <div class="second-menu">
-              <div class="search_box">
-                <input type="search" name="search" class="search">
-                <button type="submit" class="submit-btn"><i class="fas fa-search"></i></span></button>
-              </div>
-            </div>
-    </nav>
+<?php 
+$page_text = "User account page - KGB Team";
+include "includes/header.php"; ?>
 
 <main class="pega1">
   <div class="Post_details">
@@ -50,7 +32,7 @@
         <a href="">Post</a>
       </div>
     </div>
-    <?php include "starter/footer.php"; ?>
+    <?php include "includes/footer.php"; ?>
   </div>
 </main>
   </body>
