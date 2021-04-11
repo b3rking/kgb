@@ -1,26 +1,7 @@
 <?php 
 $page_title = "KGB Team - official website!";
-include "starter/header.php"; ?>
-<body>
-  <nav>
-    <div class="nav-bar">
-      <div class="first-menu">
-        <div class="logo">
-          <a href="index.php">KGB Team</a>
-        </div>
-        <div class="nav-bar-link">
-          <a href="templates/index.php">Home</a>
-          <a href="templates/login.php">Account</a>
-        </div>
-      </div>
-      <div class="second-menu">
-        <div class="search_box">
-          <input type="search" name="search" class="search">
-          <button type="submit" class="submit-btn"><i class="fas fa-search"></i></span></button>
-        </div>
-      </div>
-    </div>
-  </nav>
+include "includes/header.php"; ?>
+
   <section class="body-container">
     <div class="kgb_members">
       <div class="kgb_members_header">
@@ -28,7 +9,7 @@ include "starter/header.php"; ?>
       </div>
       <div class="user">
         <div class="user-data">
-          <img src="img/j.png" alt="username - profile pic">
+          <img src="../img/j.png" alt="username - profile pic">
           <div class="user-data_names">
             <p class="fullname">full name</p>
             <p class="username">@username</p>
@@ -41,7 +22,7 @@ include "starter/header.php"; ?>
 
       <div class="user">
         <div class="user-data">
-          <img src="img/j.png" alt="username - profile pic">
+          <img src="../img/j.png" alt="username - profile pic">
           <div class="user-data_names">
             <p class="fullname">full name</p>
             <p class="username">@username</p>
@@ -54,7 +35,7 @@ include "starter/header.php"; ?>
 
       <div class="user">
         <div class="user-data">
-          <img src="img/j.png" alt="username - profile pic">
+          <img src="../img/j.png" alt="username - profile pic">
           <div class="user-data_names">
             <p class="fullname">full name</p>
             <p class="username">@username</p>
@@ -67,7 +48,7 @@ include "starter/header.php"; ?>
 
       <div class="user">
         <div class="user-data">
-          <img src="img/j.png" alt="username - profile pic">
+          <img src="../img/j.png" alt="username - profile pic">
           <div class="user-data_names">
             <p class="fullname">full name</p>
             <p class="username">@username</p>
@@ -85,4 +66,4 @@ include "starter/header.php"; ?>
     </div>
   </section>
 
-<?php include "starter/footer.php"; ?>
+<?php include "includes/footer.php"; ?>

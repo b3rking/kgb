@@ -9,7 +9,7 @@
   <meta name="keywords" content="kgb ult team, kgb burundi, kgb developers team">
   <meta name="author" content="B3rking, pegasus03, and other contributors">
   <title><?= $page_title ?></title>
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="../css/app.css">
 
   <!-- the uncompressed version to delete after lauching -->
 
@@ -23,3 +23,24 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
+
+<body>
+  <nav>
+    <div class="nav-bar">
+      <div class="first-menu">
+        <div class="logo">
+          <a href="index.php">KGB Team</a>
+        </div>
+        <div class="nav-bar-link">
+          <a href="index.php">Home</a>
+          <a href="login.php">Account</a>
+        </div>
+      </div>
+      <div class="second-menu">
+        <div class="search_box">
+          <input type="search" name="search" class="search">
+          <button type="submit" class="submit-btn"><i class="fas fa-search"></i></span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
