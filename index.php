@@ -1,4 +1,6 @@
-<?php include "starter/header.php"; ?>
+<?php 
+$page_title = "KGB Team - official website!";
+include "starter/header.php"; ?>
 <body>
   <nav>
     <div class="nav-bar">
