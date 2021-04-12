@@ -23,7 +23,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
-
+<?php $auth = "de"; ?>
 <body>
   <nav>
     <div class="nav-bar">
@@ -33,7 +33,11 @@
         </div>
         <div class="nav-bar-link">
           <a href="index.php">Home</a>
-          <a href="login.php">Account</a>
+          <?php if(isset($auth) && !empty($auth)): ?>
+            <a href="account.php">Account</a>
+          <?php else: ?>
+            <a href="login.php">Login</a>            
+          <?php endif ?>
         </div>
       </div>
       <div class="second-menu">
