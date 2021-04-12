@@ -55,7 +55,7 @@ class User {
      */
 
     public function all() {
-        $query = "SELECT * FROM users";
+        $query = "SELECT * FROM users ORDER BY joined";
         $data = $this->conn->prepare($query);
         $data->execute();
         return $data;

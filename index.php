@@ -42,7 +42,7 @@ include "includes/header.php";
           </div>
         </div>
         <div class="link">
-          <a href="#">his diary</a>
+          <a href="account.php?id=<?php echo $id; ?>">his diary</a>
         </div>
       </div>
       <?php endwhile ?>

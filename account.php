@@ -7,6 +7,8 @@ include "includes/header.php"; ?>
     <img class="profile_img" src="../img/j.png" alt="" width="150" height="150">
     <div class="post_textes">
       <h1>Pele Jean</h1>
+      <p>User with id 
+      <strong><em><?php echo $_GET['id']; ?></em></strong> is here!</p>
       <h3>Php motion developer</h3>
       <h3>Web artisan on youtube</h3>
       <h3>Django Master</h3>
