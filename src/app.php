@@ -14,7 +14,7 @@ include_once "objects/note.php";
 $database = new Database();
 $db = $database->getConnection();
 
-$user = new User();
+$user = new User($db);
 $note = new Note();
 
 $action = $_GET['action'];
@@ -23,6 +23,7 @@ if(isset($action) && !empty($action)) {
     switch ($action) {
         case "add":
             echo "yes i'm gonna save it! using switch duh!";
+            var_dump($user->all());
             break;
     
         default:
