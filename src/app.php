@@ -21,11 +21,18 @@ $action = $_GET['action'];
 
 if(isset($action) && !empty($action)) {
     switch ($action) {
-        case "add":
-            echo "yes i'm gonna save it! using switch duh!";
-            echo $user->username;
+        case "add_user":
+            $user->username = $_POST['username'];
+            $user->fullname = $_POST['fullname'];
+            $user->email = $_POST['email'];
+            $user->password = $_POST['password'];
+            $user->id = 0;
+            
             break;
-    
+        case "add_note":
+            echo "i work with notes...";
+            break;
+
         default:
             echo "don't play with me, i can see u!(0_0)";
             break;

@@ -1,27 +1,9 @@
-<?php include "starter/header.php"; ?>
+<?php 
+$page_title = "Become one of us - KGB Team";
+include "includes/header.php"; ?>
 
-<body class="body_form">
-    <nav>
-        <div class="nav-bar">
-            <div class="first-menu">
-                <div class="logo">
-                    <a href="index.html">KGB Team</a>
-                </div>
-                <div class="nav-bar-link">
-                    <a href="index.html">Home</a>
-                    <a href="login.html">Account</a>
-                </div>
-            </div>
-            <div class="second-menu">
-                <div class="search_box">
-                    <input type="search" name="search" class="search">
-                    <button type="submit" class="submit-btn"><i class="fas fa-search"></i></span></button>
-                </div>
-            </div>
-        </div>
-    </nav>
     <section class="pega_form">
-        <form>
+        <form action="src/app.php?action=add_user" method="POST">
             <h1>Complete this form to sign up</h1>
             <div class="inputBox">
                 <input type="text" name="fullname" required>
@@ -49,9 +31,5 @@
             <p>Already a member?<a href="login.php" title="click here to create an account">Get in</a></p>
         </form>
     </section>
-    <div class="footer">
-        <p>HGB Team copyright <span class="year"></span></p>
-    </div>
-    <script src="../js/app.js"></script>
-</body>
-</html>
+
+<?php include "includes/footer.php"?>
