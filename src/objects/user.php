@@ -61,6 +61,16 @@ class User {
         return $data;
     }
 
+
+    /**
+     * 
+     *  fonction pour enregistrer un utilisateur
+     * 
+     *  fonction qui permet d'ajouter un nouveau utilisateur dans la base de       *  données 
+     *  
+     *  @return array
+     */
+
     public function save() {
         try {
             // the query for inserting data
