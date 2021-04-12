@@ -34,7 +34,7 @@ include "includes/header.php"; ?>
           <label for="body">notes</label>
           <textarea name="body" id="body" cols="30" rows="10"></textarea>
         </div>
-        <input type="submit" value="post notes">
+        <button type="submit" class="btn">post notes</button>
       </form>
     </div>
     <?php include "includes/footer.php"; ?>
