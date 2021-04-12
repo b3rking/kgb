@@ -64,7 +64,7 @@ class User {
     public function save() {
         try {
             // the query for inserting data
-            $query = "INSERT INTO ".$this->table_name."id=:id, fullname=:fullname, email=:email, username=:username, password=:password, joined=:joined";
+            $query = "INSERT INTO users SET id=:id, fullname=:fullname, email=:email, username=:username, password=:password, joined=:joined";
             
             $stmt = $this->conn->prepare($query);
 
@@ -84,9 +84,9 @@ class User {
             // execute the query
 
             if($stmt->execute()) {
-                return json_encode(['message' => 'done']);
+                return json_encode(['message' => 'successfuly created your account!']);
             } else {
-                return json_encode(['message' => 'nope']);
+                return json_encode(['message' => 'operation failed! :(']);
             }
 
         } catch(PDOException $e) {
