@@ -11,17 +11,17 @@ class Database {
     private $db_name = "kgb";
     private $username = "root";
     private $password = "";
-    public $connection;
+    public $conn;
 
     public function getConnection() {
-        $this->connection = null;
+        $this->conn = null;
 
         try {
-            $this->connection = new PDO("mysql:host".$this->host.";dbname".$this->db_name, $this->username, $this->password);
+            $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->db_name, $this->username, $this->password);
         } catch(PDOException $e) {
             echo "connection error".$e->getMessage();
         }
 
-        return $this->connection;
+        return $this->conn;
     }
 }

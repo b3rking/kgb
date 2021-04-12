@@ -33,6 +33,7 @@ if(isset($action) && !empty($action)) {
             }
             break;
         case "add_note":
+            var_dump($user->all());
             echo "i work with notes...";
             break;
 

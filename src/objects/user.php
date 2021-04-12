@@ -55,12 +55,10 @@ class User {
      */
 
     public function all() {
-        $query = "SELECT * FROM ".$this->table_name;
+        $query = "SELECT * FROM users";
         $data = $this->conn->prepare($query);
         $data->execute();
-        $users = $data->fetchAll(PDO::FETCH_ASSOC);
-        
-        return $users;
+        return $data;
     }
 
     public function save() {
@@ -81,7 +79,7 @@ class User {
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':username', $this->username);
             $stmt->bindParam(':password', $this->password);
-            $stmt->bindParam('joined', $this->joined);
+            $stmt->bindParam(':joined', $this->joined);
 
             // execute the query
 
