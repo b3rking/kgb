@@ -26,7 +26,11 @@ if(isset($action) && !empty($action)) {
             $user->fullname = $_POST['fullname'];
             $user->email = $_POST['email'];
             $user->password = $_POST['password'];
-            $user->save();
+            if($user->save()) {
+                echo $user->save();
+            } else {
+                echo $user->save();
+            }
             break;
         case "add_note":
             echo "i work with notes...";

@@ -3,6 +3,7 @@
 namespace src\objects;
 
 use PDO;
+use PDOException;
 
 class User {
 
@@ -30,6 +31,7 @@ class User {
     public $id;
     public $password;
     public $fullname;
+    public $joined;
 
     /**
      * 
@@ -41,24 +43,57 @@ class User {
      */
     public function __construct($db)
     {
-        $this->conn = $db;    
+        $this->conn = $db;
+        $this->id = null;
     }
+
+    /**
+     * 
+     *  fonction qui renvoie tout les utilisateurs
+     * 
+     *  @return array
+     */
 
     public function all() {
         $query = "SELECT * FROM ".$this->table_name;
         $data = $this->conn->prepare($query);
         $data->execute();
-        $names = $data->fetchAll(PDO::FETCH_ASSOC);
+        $users = $data->fetchAll(PDO::FETCH_ASSOC);
         
-        $this->name = $names['username'];
+        return $users;
     }
 
     public function save() {
-        $query = "INSERT INTO `".$this->table_name."`(`id`, `fullname`, `email`, `username`, `password`) VALUES (
-            $this->id,
-            $this->fullname,
-            $this->email,
-            $this->username,
-            bcrypt($this->password);
+        try {
+            // the query for inserting data
+            $query = "INSERT INTO ".$this->table_name."id=:id, fullname=:fullname, email=:email, username=:username, password=:password, joined=:joined";
+            
+            $stmt = $this->conn->prepare($query);
+
+            // escaping the data
+            $this->fullname = htmlspecialchars($this->fullname);
+            $this->email = htmlspecialchars($this->email);
+            $this->username = htmlspecialchars($this->username);
+
+            //binding data
+            $stmt->bindParam(':id', $this->id);
+            $stmt->bindParam(':fullname', $this->fullname);
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':username', $this->username);
+            $stmt->bindParam(':password', $this->password);
+            $stmt->bindParam('joined', $this->joined);
+
+            // execute the query
+
+            if($stmt->execute()) {
+                return json_encode(['message' => 'done']);
+            } else {
+                return json_encode(['message' => 'nope']);
+            }
+
+        } catch(PDOException $e) {
+            die("error ".$e->getMessage());
+            return json_encode(['message' => 'fail']);
+        }
     }
 }
