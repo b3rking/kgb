@@ -6,8 +6,8 @@ include "includes/header.php"; ?>
         <form>
             <h1>Sign In</h1>
             <div class="inputBox">
-                <input type="email" name="" required>
-                <label>Email address</label>
+                <input type="name" name="" required>
+                <label>Username</label>
             </div>
             <div class="inputBox">
                 <input type="password" name="" required>
