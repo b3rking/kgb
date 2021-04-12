@@ -23,7 +23,7 @@ if(isset($action) && !empty($action)) {
     switch ($action) {
         case "add":
             echo "yes i'm gonna save it! using switch duh!";
-            var_dump($user->all());
+            echo $user->username;
             break;
     
         default:

@@ -2,6 +2,8 @@
 
 namespace src\objects;
 
+use PDO;
+
 class User {
 
     // db connection and table
@@ -25,5 +27,8 @@ class User {
         $query = "SELECT * FROM ".$this->table_name;
         $data = $this->conn->prepare($query);
         $data->execute();
+        $names = $data->fetchAll(PDO::FETCH_ASSOC);
+        
+        $this->name = $names['username'];
     }
 }
