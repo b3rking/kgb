@@ -196,10 +196,6 @@ html {
     border-radius: 0;
 }
 
-strong {
-    font-size: 4rem;
-}
-
 /* code to remove the x from the search input!!! */
 
 input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
