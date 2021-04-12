@@ -30,6 +30,8 @@ if(isset($action) && !empty($action)) {
             echo "don't play with me, i can see u!(0_0)";
             break;
     }
+} else {
+    header("Location: ../index.php");
 }
 
 ?>
