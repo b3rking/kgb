@@ -33,9 +33,11 @@ if(isset($action) && !empty($action)) {
             }
             break;
         case "add_note":
-            var_dump($user->all());
             echo "i work with notes...";
             break;
+
+        case "update":
+            echo "i'm gonna update someone face! :)";
 
         default:
             echo "don't play with me, i can see u!(0_0)";

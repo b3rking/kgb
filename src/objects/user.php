@@ -124,4 +124,45 @@ class User {
             return json_encode(['message' => 'fail']);
         }
     }
+
+    /**
+     * 
+     *  fonction pour mettre a jour un seul utilisateur
+     * 
+     *  fonction qui permet de mettre a jour un seul utilisateur dans la base de *     données
+     *  
+     *  @return array
+     */
+
+    public function update($id) {
+
+        // the query to be executed
+
+        $query = "UPDATE users SET id=:id, fullname=:fullname, email=:email, username=:username, password=:password, joined=:joined, status=:status, bio=:bio, profile_pic=:profile_pic WHERE id =:id";
+        $data = $this->conn->prepare($query);
+
+        // escaping special character
+        $this->fullname = htmlspecialchars($this->fullname);
+        $this->email = htmlspecialchars($this->email);
+        $this->username = htmlspecialchars($this->username);
+        $this->status = htmlspecialchars($this->status);
+        $this->bio = htmlspecialchars($this->bio);
+
+        // binding data
+        $data->bindParam(':id', $this->id);
+        $data->bindParam(':fullname', $this->fullname);
+        $data->bindParam(':email', $this->email);
+        $data->bindParam(':username', $this->username);
+        $data->bindParam(':password', $this->password);
+        $data->bindParam(':joined', $this->joined);
+        $data->bindParam(':status', $this->status);
+        $data->bindParam(':bio', $this->bio);
+        $data->bindParam(':profile_pic', $this->profile_pic);
+
+        if($data->execute()) {
+            return json_encode(['message' => 'successfuly created your account!']);
+        } else {
+            return json_encode(['message' => 'operation failed! :(']);
+        }
+    }
 }
