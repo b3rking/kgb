@@ -51,7 +51,7 @@ include "includes/header.php";
       <a href="">Modify</a>
     </div>
   </div>
-  <form action="src/app.php?action=update" method="PUT">
+  <form action="src/app.php?action=update" method="POST">
       <div class="input-box">
         <label for="username">username</label>
         <input type="text" name="username">

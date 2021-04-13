@@ -36,14 +36,16 @@ if(isset($action) && !empty($action)) {
                 // with the errors
                 $response = json_encode(['message' => 'failed']);
             }
-            return $response;
+            var_dump($response);
             break;
         case "add_note":
             echo "i work with notes...";
             break;
 
         case "update":
+
             echo "i'm gonna update someone face! :)";
+            break;
 
         default:
             echo "don't play with me, i can see u!(0_0)";
