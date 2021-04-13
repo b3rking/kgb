@@ -1,18 +1,49 @@
 <?php
-$page_text = "User account page - KGB Team";
-include "includes/header.php"; ?>
+// starting sessions
+
+// include classes and objects
+
+use src\config\Database;
+use src\objects\Note;
+use src\objects\User;
+
+include_once "src/config/Database.php";
+include_once "src/objects/user.php";
+include_once "src/objects/note.php";
+
+// get database connection
+
+$database = new Database();
+$db = $database->getConnection();
+
+$user = new User($db);
+$note = new Note();
+
+
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+} else {
+  header("Location: index.php");
+}
+
+$user = $user->getOne($id);
+
+$page_text = "User personal page - KGB Team";
+include "includes/header.php"; 
+?>
+
 
 <section class="pega1">
   <div class="Post_details">
     <img class="profile_img" src="../img/j.png" alt="" width="150" height="150">
     <div class="post_textes">
-      <h1>Pele Jean</h1>
-      <p>User with id <?php echo $_GET['id']; ?> is here!</p>
-      <h3>Php motion developer</h3>
-      <h3>Web artisan on youtube</h3>
-      <h3>Django Master</h3>
-      <h3>@pelejean1995</h3>
-
+      <?php 
+      while($res = $user->fetch(PDO::FETCH_ASSOC)): 
+      extract($res);
+      ?>
+      <h1><?php echo $username; ?></h1>
+      <h3><?php echo $fullname; ?></h3>
+      <?php endwhile ?>
     </div>
     <div class="boutons">
       <a href="">Modify</a>
