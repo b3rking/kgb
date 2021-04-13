@@ -27,10 +27,16 @@ if(isset($action) && !empty($action)) {
             $user->email = $_POST['email'];
             $user->password = $_POST['password'];
             if($user->save()) {
-                echo $user->save();
+                // redirect to the home page
+                // with the success message in get
+                // sign in the user automaticaly
+                $response = json_encode(['message' => 'success']);
             } else {
-                echo $user->save();
+                // return back to the formular
+                // with the errors
+                $response = json_encode(['message' => 'failed']);
             }
+            return $response;
             break;
         case "add_note":
             echo "i work with notes...";

@@ -56,10 +56,6 @@ include "includes/header.php";
         <label for="username">username</label>
         <input type="text" name="username">
       </div>
-      <div class="input-box">
-        <label for="fullname">fullname</label>
-        <input type="text" name="fullname">
-      </div>
 
       <div class="input-box">
         <label for="fullname">fullname</label>
