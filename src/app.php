@@ -54,5 +54,3 @@ if(isset($action) && !empty($action)) {
 } else {
     header("Location: ../index.php");
 }
-
-?>
