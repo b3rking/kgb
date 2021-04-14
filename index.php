@@ -5,9 +5,7 @@ use src\config\Database;
 use src\objects\Note;
 use src\objects\User;
 
-include_once "src/config/Database.php";
-include_once "src/objects/user.php";
-include_once "src/objects/note.php";
+require_once 'vendor/autoload.php';
 
 // get database connection
 
@@ -20,7 +18,7 @@ $note = new Note();
 $list_user = $user->all();
 
 $page_title = "KGB Team - official website!";
-include "includes/header.php"; 
+include "includes/header.php";
 
 ?>
 
