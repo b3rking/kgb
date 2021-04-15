@@ -5,9 +5,7 @@ use src\config\Database;
 use src\objects\Note;
 use src\objects\User;
 
-include_once "config/Database.php";
-include_once "objects/user.php";
-include_once "objects/note.php";
+require_once '../vendor/autoload.php';
 
 // get database connection
 
@@ -17,9 +15,8 @@ $db = $database->getConnection();
 $user = new User($db);
 $note = new Note();
 
-$action = $_GET['action'];
-
 if(isset($action) && !empty($action)) {
+    $action = $_GET['action'];
     switch ($action) {
         case "add_user":
             $user->username = $_POST['username'];
@@ -54,5 +51,3 @@ if(isset($action) && !empty($action)) {
 } else {
     header("Location: ../index.php");
 }
-
-?>

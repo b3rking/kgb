@@ -1,4 +1,5 @@
-<?php 
+<?php
+require_once 'vendor/autoload.php';
 $page_title = "Become one of us - KGB Team";
 include "includes/header.php"; ?>
 
