@@ -15,8 +15,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-$note = new Note();
-
+$note = new Note($db);
 
 if (isset($_GET['id'])) {
   $id = $_GET['id'];

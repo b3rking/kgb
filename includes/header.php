@@ -34,9 +34,9 @@
         <div class="nav-bar-link">
           <a href="index.php">Home</a>
           <?php if(isset($auth) && !empty($auth)): ?>
-            <a href="account.php">Account</a>
+            <a href="account.php">logout</a>
           <?php else: ?>
-            <a href="login.php">Login</a>            
+            <a href="login.php">Login</a>         
           <?php endif ?>
         </div>
       </div>
