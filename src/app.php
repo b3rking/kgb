@@ -13,7 +13,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-$note = new Note();
+$note = new Note($db);
 
 $action = $_GET['action'];
 

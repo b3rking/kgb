@@ -13,9 +13,10 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-$note = new Note();
+$note = new Note($db);
 
 $list_user = $user->all();
+$list_note = $note->all();
 
 $page_title = "KGB Team - official website!";
 include "includes/header.php";
@@ -48,6 +49,15 @@ include "includes/header.php";
     </div>
     <div class="recent_post">
       <h2>recent post from membersssss</h2>
+      <?php 
+      while ($res = $list_note->fetch(PDO::FETCH_ASSOC)) : 
+      extract($res);
+      ?>
+      <div class="notes">
+        <h2><?php echo $title; ?></h2>
+        <p><?php echo $body; ?></p>
+      </div>
+      <?php endwhile ?>
     </div>
   </section>
 
