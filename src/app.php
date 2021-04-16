@@ -15,8 +15,10 @@ $db = $database->getConnection();
 $user = new User($db);
 $note = new Note();
 
+$action = $_GET['action'];
+
 if(isset($action) && !empty($action)) {
-    $action = $_GET['action'];
+    
     switch ($action) {
         case "add_user":
             $user->username = $_POST['username'];
