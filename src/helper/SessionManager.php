@@ -1,9 +1,14 @@
 <?php
 
+namespace src\helper;
+
+
 /**
  * 
+ * class pour gerer les sessions
  * 
- * @param 
+ * @package src/helper
+ * @author b3rking
  */
 
 
