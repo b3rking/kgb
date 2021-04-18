@@ -23,7 +23,6 @@ class User {
 
     // db connection and table
     private $conn;
-    private $table_name = "users";
     
     //object property
     public $username;
@@ -37,7 +36,7 @@ class User {
      * 
      *  fonction d'initialisation de l'utilisateur
      *  
-     *  @param string $db une instance de la classe Database
+     *  @param object $db une instance de la classe Database
      * 
      *  @return bool
      */
@@ -54,7 +53,8 @@ class User {
      *  @return array
      */
 
-    public function all() {
+    public function all():object
+    {
         $query = "SELECT * FROM users ORDER BY joined";
         $data = $this->conn->prepare($query);
         $data->execute();

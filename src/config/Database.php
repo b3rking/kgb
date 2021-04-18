@@ -13,7 +13,8 @@ class Database {
     private $password = "";
     public $conn;
 
-    public function getConnection() {
+    public function getConnection(): object
+    {
         $this->conn = null;
 
         try {

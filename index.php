@@ -1,9 +1,7 @@
 <?php
-session_start();
 // include classes and objects
 
 use src\config\Database;
-use src\helper\SessionManager;
 use src\objects\Note;
 use src\objects\User;
 
@@ -20,15 +18,6 @@ $note = new Note($db);
 $list_user = $user->all();
 $list_note = $note->all();
 
-$me = new SessionManager();
-$me->setSession('username', 'berking');
-$user = $me->getSession('username');
-$me->updateSession('username', 'fuckyou!');
-$user = $me->getSession('username');
-$me->deleteSession();
-$user = $me->getSession('username');
-
-
 $page_title = "KGB Team - official website!";
 include "includes/header.php";
 
@@ -37,7 +26,7 @@ include "includes/header.php";
   <section class="body-container">
     <div class="kgb_members">
       <div class="kgb_members_header">
-        <h2>our actual members<?php echo $user; ?></h2>
+        <h2>our actual members</h2>
       </div>
       <?php 
       while ($res = $list_user->fetch(PDO::FETCH_ASSOC)) : 

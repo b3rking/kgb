@@ -1,6 +1,7 @@
 <?php
 
 namespace src\objects;
+use PDOException;
 
 class Note {
 
@@ -32,7 +33,7 @@ class Note {
      * 
      *  fonction d'initialisation du notebook
      *  
-     *  @param string $db une instance de la classe Database
+     *  @param object $db une instance de la classe Database
      * 
      *  @return bool
      */
@@ -49,7 +50,8 @@ class Note {
      *  @return array
      */
 
-    public function all() {
+    public function all():object 
+    {
         $query = "SELECT * FROM notes ORDER BY created";
         $data = $this->conn->prepare($query);
         $data->execute();
@@ -85,6 +87,7 @@ class Note {
      *  
      *  @return array
      */
+
 
     public function save() {
         try {
