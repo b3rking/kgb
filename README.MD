@@ -4,8 +4,8 @@
 
 ## Motivation
 
-why? first we love technology, and we a group of coders so decided to make our own online
-notebook and share what we in our daily routine to keep a track on each other evoulution.
+why? first we love technology, and we're a group of coders so decided to make our own online
+notebook and share what we do in our daily routine to keep a track on each other evolution.
 
 ---
 ## contributors
