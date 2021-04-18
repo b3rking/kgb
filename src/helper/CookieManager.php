@@ -10,7 +10,7 @@ class CookieManager
      *
      * classe pour gerer les cookies
      *
-     * classe qui va creer, mettre a jours, supprimer, et lire des cookies
+     * classe qui va creer, mettre a jour, supprimer, et lire des cookies
      *
      * @package src/helper
      * @author b3rking
@@ -72,7 +72,7 @@ class CookieManager
      * @return bool
      */
 
-    public function deleteCookie($name):bool
+    public function deleteCookie(string $name):bool
     {
         setcookie($name, "", time() - 3600);
         unset($_COOKIE[$name]);

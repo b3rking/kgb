@@ -24,7 +24,7 @@ class SessionManager {
      * @return bool
      */
 
-    public function setSession($name, $value) : bool
+    public function setSession(string $name, string $value) : bool
     {
         if($_SESSION[$name] = $value) {
             return true;
@@ -43,7 +43,7 @@ class SessionManager {
      */
 
 
-    public function getSession($name): string
+    public function getSession(string $name): string
     {
         if (isset($_SESSION) && !empty($_SESSION[$name])) {
             return $_SESSION[$name];
@@ -63,7 +63,7 @@ class SessionManager {
      */
 
 
-    public function updateSession($name, $value): bool
+    public function updateSession(string $name, string $value): bool
     {
         if($_SESSION[$name] = $value) {
             return true;
