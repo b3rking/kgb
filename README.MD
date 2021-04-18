@@ -11,8 +11,9 @@ notebook and share what we in our daily routine to keep a track on each other ev
 ## contributors
 
 - b3rking    <ishimweeschylebersy@gmail.com>
-- pegasus03  <->
+- Estime257  <->
 - As_Audi    <->
+- darqsk     <->
 
 ---
 
