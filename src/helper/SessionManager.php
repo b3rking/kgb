@@ -44,7 +44,11 @@ class SessionManager {
 
     public function getSession($name): string
     {
-        return $_SESSION[$name];
+        if (isset($_SESSION) && !empty($_SESSION[$name])) {
+            return $_SESSION[$name];
+        } else {
+            return "not set";
+        }
     }
     
 
@@ -73,7 +77,7 @@ class SessionManager {
      * 
      */
     
-    public function deleteSession($name): bool
+    public function deleteSession(): bool
     {
         // remove all session variables
         session_unset();
