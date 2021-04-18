@@ -15,5 +15,6 @@ namespace src\helper;
 
 class SessionManager {
 
-    // yes i'm session manager class...
+    public $name;
+    
 }
