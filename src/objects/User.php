@@ -2,7 +2,6 @@
 
 namespace src\objects;
 
-use PDO;
 use PDOException;
 
 class User {
