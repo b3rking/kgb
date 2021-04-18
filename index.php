@@ -26,7 +26,7 @@ include "includes/header.php";
   <section class="body-container">
     <div class="kgb_members">
       <div class="kgb_members_header">
-        <h2>our actual members<?php echo $users; ?></h2>
+        <h2>our actual members</h2>
       </div>
       <?php 
       while ($res = $list_user->fetch(PDO::FETCH_ASSOC)) : 
