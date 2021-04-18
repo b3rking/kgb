@@ -21,6 +21,7 @@ class SessionManager {
      * 
      * @param string $name le nom de la session
      * @param string $value la valeur a utiliser
+     * @return bool
      */
 
     public function setSession($name, $value) : bool
@@ -38,7 +39,7 @@ class SessionManager {
      * va nous permettre d'avoir la valeur des sessions
      * 
      * @param string $name le nom de la session
-     * 
+     * @return string
      */
 
 
@@ -58,6 +59,7 @@ class SessionManager {
      * 
      * @param string $name le nom de la session
      * @param string $value la valeur a utiliser
+     * @return bool
      */
 
 
@@ -74,7 +76,7 @@ class SessionManager {
     /**
      * 
      * va nous permettre de supprimer les sessions
-     * 
+     * @return bool
      */
     
     public function deleteSession(): bool
