@@ -19,11 +19,11 @@ class CookieManager
 
     /**
      *
-     * fonction pour creer un cookie!
+     * methode pour creer un cookie!
      *
      * @param string $name le nom du cookie
      * @param string $value la valeur du cookie
-     * @param int $till la durée en jours
+     * @param int $till la validité en jours
      * @return bool
      */
 
@@ -46,7 +46,7 @@ class CookieManager
 
     /**
      *
-     * fonction pour lire un cookie!
+     * methode pour lire un cookie!
      *
      * @param string $name le nom du cookie
      *
@@ -65,7 +65,7 @@ class CookieManager
 
     /**
      *
-     * fonction pour supprimer un cookie!
+     * methode pour supprimer un cookie!
      *
      * @param string $name le nom du cookie
      *
@@ -74,6 +74,8 @@ class CookieManager
 
     public function deleteCookie($name):bool
     {
-        setcookie($name, "", )
+        setcookie($name, "", time() - 3600);
+        unset($_COOKIE[$name]);
+        return true;
     }
 }
