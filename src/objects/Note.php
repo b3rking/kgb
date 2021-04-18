@@ -69,7 +69,7 @@ class Note {
 
     public function getOne($id) {
 
-        $query = "SELECT * FROM users WHERE id =:id";
+        $query = "SELECT * FROM notes WHERE id =:id";
         $data = $this->conn->prepare($query);
 
         $data->bindParam(':id', $id);
