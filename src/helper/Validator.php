@@ -28,7 +28,7 @@ class Validator
     {
         $bool = null;
         if (isset($username)) {
-            if(strlen($username) < 5 && strlen($username) > 20) {
+            if(strlen($username) > 5 && strlen($username) < 20) {
                 $bool = true;
             } else {
                 $bool = false;
