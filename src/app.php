@@ -33,17 +33,9 @@ if(isset($action) && !empty($action)) {
                     $user->email = $_POST['email'];
                     $user->password = $_POST['password'];
                     if($user->save()) {
-                        // redirect to the home page
                         header('Location: ../index.php?m='.$user->username);
-                        // with the success message in get
                         // sign in the user
-                        $response = json_encode(['message' => 'success']);
-                    } else {
-                        // return back to the formular
-                        // with the errors
-                        $response = json_encode(['message' => 'failed']);
                     }
-                    var_dump($response);
                 } else {
                     $errors = "your passwords don't match";
                     header('Location: ../register.php?errors='.$errors);
