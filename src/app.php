@@ -24,10 +24,10 @@ if(isset($action) && !empty($action)) {
     switch ($action) {
         case "add_user":
             $validate = new Validator();
-            $user = $validate->Username($_POST['username']);
-            $password = $validate->Password($_POST['password'], $_POST['confirmpass']);
-            if($user) {
-                if($password) {
+            $user_valid = $validate->Username($_POST['username']);
+            $password_valid = $validate->Password($_POST['password'], $_POST['confirmpass']);
+            if($user_valid) {
+                if($password_valid) {
                     $user->username = $_POST['username'];
                     $user->fullname = $_POST['fullname'];
                     $user->email = $_POST['email'];
