@@ -1,7 +1,7 @@
 <?php
 
 
-namespace src\helper;
+namespace src\classes;
 
 
 class CookieManager
@@ -12,7 +12,7 @@ class CookieManager
      *
      * classe qui va creer, mettre a jour, supprimer, et lire des cookies
      *
-     * @package src/helper
+     * @package src/classes
      * @author b3rking
      */
 

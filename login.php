@@ -5,10 +5,10 @@ include "includes/header.php"; ?>
 
     <section class="pega_form">
         <form>
-            <h1>Sign In</h1>
+            <h1>Start here...</h1>
             <div class="inputBox">
-                <input type="email" name="" required>
-                <label>Email address</label>
+                <input type="username" name="" required>
+                <label>username</label>
             </div>
             <div class="inputBox">
                 <input type="password" name="" required>

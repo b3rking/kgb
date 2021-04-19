@@ -1,7 +1,7 @@
 <?php
 
 
-namespace src\helper;
+namespace src\classes;
 
 /**
  *
@@ -9,7 +9,7 @@ namespace src\helper;
  *
  * pour valider les inputs
  *
- * @package src\helper
+ * @package src\classes
  * @author b3rking
  *
  */

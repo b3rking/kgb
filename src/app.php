@@ -5,7 +5,7 @@ require_once '../vendor/autoload.php';
 // some imports
 
 use src\config\Database;
-use src\helper\Validator;
+use src\classes\Validator;
 use src\objects\Note;
 use src\objects\User;
 

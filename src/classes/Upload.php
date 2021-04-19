@@ -1,13 +1,13 @@
 <?php
 
 
-namespace src\helper;
+namespace src\classes;
 
 /**
  *
  * Class Upload pour gerer l'upload des fichiers
  *
- * @package src\helper
+ * @package src\classes
  * @author b3rking
  *
  */
