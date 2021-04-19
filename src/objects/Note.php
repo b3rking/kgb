@@ -23,6 +23,7 @@ class Note {
     private $conn;
     
     //object property
+    public $id;
     public $user_id;
     public $body;
     public $created;
@@ -91,35 +92,29 @@ class Note {
 
     public function save() {
         try {
+            /* id, user_id, body, created, modified, title */
             // the query for inserting data
-            $query = "INSERT INTO users SET id=:id, fullname=:fullname, email=:email, username=:username, password=:password, joined=:joined";
+            $query = "INSERT INTO notes SET id=:id, user_id=:user_id, body=:body, title=:title";
             
             $stmt = $this->conn->prepare($query);
 
-            // escaping the data
-            $this->fullname = htmlspecialchars($this->fullname);
-            $this->email = htmlspecialchars($this->email);
-            $this->username = htmlspecialchars($this->username);
-
             //binding data
             $stmt->bindParam(':id', $this->id);
-            $stmt->bindParam(':fullname', $this->fullname);
-            $stmt->bindParam(':email', $this->email);
-            $stmt->bindParam(':username', $this->username);
-            $stmt->bindParam(':password', $this->password);
-            $stmt->bindParam(':joined', $this->joined);
+            $stmt->bindParam(':user_id', $this->user_id);
+            $stmt->bindParam(':body', $this->body);
+            $stmt->bindParam(':title', $this->title);
 
             // execute the query
 
             if($stmt->execute()) {
-                return json_encode(['message' => 'successfuly created your account!']);
+                return ['message' => 'successfuly created your note!'];
             } else {
-                return json_encode(['message' => 'operation failed! :(']);
+                return ['message' => 'operation failed! :('];
             }
 
         } catch(PDOException $e) {
             die("error ".$e->getMessage());
-            return json_encode(['message' => 'fail']);
+            return ['message' => 'fail'];
         }
     }
 

@@ -61,4 +61,50 @@ class Validator
         }
         return $bool;
     }
+
+
+    /**
+     *
+     * methode pour verifier et valider la taille des notes!
+     *
+     * @param string $body le corp du note!
+     * @return bool
+     *
+     */
+
+    public function noteBody(string $body):bool
+    {
+        $bool = null;
+        if (isset($body)) {
+            if(strlen($body) < 1000) {
+                $bool = true;
+            } else {
+                $bool = false;
+            }
+        }
+        return $bool;
+    }
+
+
+    /**
+     *
+     * methode pour verifier et valider les titre de notes!
+     *
+     * @param string $title le titre d'une note!
+     * @return bool
+     *
+     */
+
+    public function noteTitle(string $title):bool
+    {
+        $bool = null;
+        if (isset($title)) {
+            if(strlen($title) < 150) {
+                $bool = true;
+            } else {
+                $bool = false;
+            }
+        }
+        return $bool;
+    }
 }
