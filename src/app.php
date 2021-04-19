@@ -4,6 +4,7 @@ require_once '../vendor/autoload.php';
 
 // some imports
 
+use src\classes\Auth;
 use src\config\Database;
 use src\classes\Validator;
 use src\objects\Note;
@@ -34,7 +35,8 @@ if(isset($action) && !empty($action)) {
                     $user->password = $_POST['password'];
                     if($user->save()) {
                         header('Location: ../index.php?m='.$user->username);
-                        // sign in the user
+                        $log = new Auth();
+                        $log->login($user->username, $user->id);
                     }
                 } else {
                     $errors = "your passwords don't match";

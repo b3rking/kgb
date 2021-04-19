@@ -1,6 +1,8 @@
 <?php
+session_start();
 // include classes and objects
 
+use src\classes\Auth;
 use src\config\Database;
 use src\objects\Note;
 use src\objects\User;
@@ -21,6 +23,11 @@ $list_note = $note->all();
 $page_title = "KGB Team - official website!";
 include "includes/header.php";
 
+$sess = new Auth();
+$sess->is_auth();
+
+
+
 ?>
 <?php if (isset($_GET['m'])): ?>
     <div class="alert-box success">
@@ -31,7 +38,7 @@ include "includes/header.php";
 
     <div class="kgb_members">
       <div class="kgb_members_header">
-        <h2>our actual members</h2>
+        <h2>our actual members<?php var_dump($sess); ?></h2>
       </div>
       <?php 
       while ($res = $list_user->fetch(PDO::FETCH_ASSOC)) : 
