@@ -36,7 +36,7 @@ if(isset($action) && !empty($action)) {
                     if($user->save()) {
                         header('Location: ../index.php?m='.$user->username);
                         $log = new Auth();
-                        $log->login($user->username, $user->id);
+                        $log->login($user->username);
                     }
                 } else {
                     $errors = "your passwords don't match";
@@ -73,6 +73,23 @@ if(isset($action) && !empty($action)) {
                 $error = 'failed to create your note';
                 header('Location: ../account.php?e='.$error);
             }
+            break;
+
+        case "login":
+            $username = $_POST['username'];
+            $log = new Auth();
+            if($log->login($username)) {
+                echo "done";
+            } else {
+                echo "failed";
+            }
+            break;
+
+        case "logout":
+            echo "hello";
+            $auth = new Auth();
+            $auth->logout();
+            header('Location: ../login.php');
             break;
 
         case "update":

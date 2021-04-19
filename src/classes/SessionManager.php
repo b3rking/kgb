@@ -2,6 +2,7 @@
 
 namespace src\classes;
 
+session_start();
 
 /**
  * 

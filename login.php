@@ -1,17 +1,19 @@
 <?php
+session_start();
 require_once 'vendor/autoload.php';
 $page_title = "Login here - KGB Team";
-include "includes/header.php"; ?>
+include "includes/header.php";
+?>
 
     <section class="pega_form">
-        <form>
+        <form action="src/app.php?action=login" method="post">
             <h1>Start here...</h1>
             <div class="inputBox">
-                <input type="username" name="" required>
+                <input type="username" name="username" required>
                 <label>username</label>
             </div>
             <div class="inputBox">
-                <input type="password" name="" required>
+                <input type="password" name="password" required>
                 <label>Password</label>
             </div>
             <div class="button_form">

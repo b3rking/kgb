@@ -23,11 +23,6 @@ $list_note = $note->all();
 $page_title = "KGB Team - official website!";
 include "includes/header.php";
 
-$sess = new Auth();
-$sess->is_auth();
-
-
-
 ?>
 <?php if (isset($_GET['m'])): ?>
     <div class="alert-box success">
@@ -38,7 +33,7 @@ $sess->is_auth();
 
     <div class="kgb_members">
       <div class="kgb_members_header">
-        <h2>our actual members<?php var_dump($sess); ?></h2>
+        <h2>our actual member</h2>
       </div>
       <?php 
       while ($res = $list_user->fetch(PDO::FETCH_ASSOC)) : 

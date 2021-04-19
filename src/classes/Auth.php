@@ -27,20 +27,18 @@ class Auth
     /**
      *
      * @param string $username le nom de l'utilisateur
-     * @param int $user_id le numero de l'utilisateur
+     *
      * @return bool
      */
 
-    public function login(string $username, int $user_id):bool
+    public function login(string $username):bool
     {
         $bool = null;
         $cookie = new CookieManager();
         $session = new SessionManager();
         if($cookie->setCookie('username', $username, 30)) {
-            $cookie->setCookie('useru_id', $user_id, 30);
             if (isset($_COOKIE['username']) && isset($_COOKIE['user_id'])) {
-                $session->setSession('username', $_COOKIE['username']);
-                $session->setSession('user_id', $_COOKIE['user_id']);
+                $session->setSession('username', $username);
             }
             $bool = true;
         } else {
@@ -55,21 +53,13 @@ class Auth
      *
      * @return bool
      */
-    public function logout():bool
+    public function logout():void
     {
         $cookie = new CookieManager();
         $session = new SessionManager();
 
-        if($cookie->deleteCookie('username') && $cookie->deleteCookie('user_id'))
-        {
-            if ($session->deleteSession()) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+        $cookie->deleteCookie('username');
+        $session->deleteSession();
     }
 
 
@@ -82,8 +72,8 @@ class Auth
 
     public function is_auth():bool
     {
-        if(isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
-            if(!empty($_SESSION['username']) && !empty($_SESSION['user_id'])) {
+        if(isset($_COOKIE['username'])) {
+            if(!empty($_COOKIE['username'])) {
                 return true;
             } else {
                 return false;
@@ -98,14 +88,14 @@ class Auth
      *
      * methode pour verifier le proprietaire et autorisation
      *
-     * @param int $visitor le numero du visiteur de la page personnel
-     * @param int $page_owner le numero du proprio
+     * @param string $visitor le numero du visiteur de la page personnel
+     * @param string $page_owner le numero du proprio
      * @return bool
      *
      *
      */
 
-    public function is_owner(int $visitor, int $page_owner) {
+    public function is_owner(string $visitor, string $page_owner) {
         $bool = null;
         if(isset($visitor) && isset($page_owner)) {
             if($visitor == $page_owner) {

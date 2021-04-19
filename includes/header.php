@@ -1,3 +1,15 @@
+<?php
+
+use src\classes\Auth;
+
+require_once 'vendor/autoload.php';
+
+$auth = new Auth();
+$is_auth = $auth->is_auth();
+$cookie = new \src\classes\CookieManager();
+$username = $cookie->getCookie('username');
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -33,8 +45,8 @@
         </div>
         <div class="nav-bar-link">
           <a href="index.php">Home</a>
-          <?php if(isset($auth) && !empty($auth)): ?>
-            <a href="account.php">logout</a>
+          <?php if($is_auth == 1): ?>
+            <a href="../src/app.php?action=logout">logout <?php echo $username; ?></a>
           <?php else: ?>
             <a href="login.php">Login</a>         
           <?php endif ?>
