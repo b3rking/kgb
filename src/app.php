@@ -65,10 +65,12 @@ if(isset($action) && !empty($action)) {
 
             if($note->save()) {
                 $message = 'successfuly created your note';
-                header('Location: ../account.php?m='.$message); }
+                header('Location: ../account.php?m='.$message);
+            }
             else {
                 $error = 'failed to create your note';
-                header('Location: ../account.php?e='.$error); }
+                header('Location: ../account.php?e='.$error);
+            }
             break;
 
         case "update":
