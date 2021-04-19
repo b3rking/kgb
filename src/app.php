@@ -1,11 +1,13 @@
 <?php 
 // include classes and objects
+require_once '../vendor/autoload.php';
+
+// some imports
 
 use src\config\Database;
+use src\helper\Validator;
 use src\objects\Note;
 use src\objects\User;
-
-require_once '../vendor/autoload.php';
 
 // get database connection
 
@@ -21,21 +23,36 @@ if(isset($action) && !empty($action)) {
     
     switch ($action) {
         case "add_user":
-            $user->username = $_POST['username'];
-            $user->fullname = $_POST['fullname'];
-            $user->email = $_POST['email'];
-            $user->password = $_POST['password'];
-            if($user->save()) {
-                // redirect to the home page
-                // with the success message in get
-                // sign in the user automaticaly
-                $response = json_encode(['message' => 'success']);
+            $validate = new Validator();
+            $user = $validate->Username($_POST['username']);
+            $password = $validate->Password($_POST['password'], $_POST['confirmpass']);
+            if($user) {
+                if($password) {
+                    $user->username = $_POST['username'];
+                    $user->fullname = $_POST['fullname'];
+                    $user->email = $_POST['email'];
+                    $user->password = $_POST['password'];
+                    if($user->save()) {
+                        // redirect to the home page
+                        header('Location: ../index.php');
+                        // with the success message in get
+                        // sign in the user automaticaly
+                        $response = json_encode(['message' => 'success']);
+                    } else {
+                        // return back to the formular
+                        // with the errors
+                        $response = json_encode(['message' => 'failed']);
+                    }
+                    var_dump($response);
+                } else {
+                    $errors = "your passwords don't match";
+                    header('Location: ../register.php?errors='.$errors);
+                }
             } else {
-                // return back to the formular
-                // with the errors
-                $response = json_encode(['message' => 'failed']);
+                $errors = 'username must contain min 5 caracters and max 20 caracters';
+                header('Location: ../register.php?errors='.$errors);
             }
-            var_dump($response);
+
             break;
         case "add_note":
             echo "i work with notes...";

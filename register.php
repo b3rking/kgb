@@ -6,6 +6,9 @@ include "includes/header.php"; ?>
     <section class="pega_form">
         <form action="src/app.php?action=add_user" method="POST">
             <h1>Complete this form to sign up</h1>
+            <?php if(isset($_GET['errors'])): ?>
+                <?php var_dump($_GET['errors']); ?>
+            <?php endif ?>
             <div class="inputBox">
                 <input type="text" name="fullname" required>
                 <label>Fullname</label>
@@ -23,7 +26,7 @@ include "includes/header.php"; ?>
                 <label>Password</label>
             </div>
             <div class="inputBox">
-                <input type="password" name="confirmPass" required>
+                <input type="password" name="confirmpass" required>
                 <label>Confirm Password</label>
             </div>
             <div class="button_form">

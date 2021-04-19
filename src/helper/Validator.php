@@ -20,21 +20,21 @@ class Validator
      * methode pour verifier et valider les usernames!
      *
      * @param string $username l'input correspondant au nom d'utilisateur!
-     * @return array
+     * @return bool
      *
      */
 
-    public function Username(string $username):array
+    public function Username(string $username):bool
     {
-        $error = [];
+        $bool = null;
         if (isset($username)) {
             if(strlen($username) < 5 && strlen($username) > 20) {
-                $error = ['error' => 'username require 5 caracters and less than 20 caracters'];
+                $bool = true;
+            } else {
+                $bool = false;
             }
-        } else {
-            $error = ['error' => 'no username entered'];
         }
-        return $error;
+        return $bool;
     }
 
 
