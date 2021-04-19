@@ -23,6 +23,10 @@ $list_note = $note->all();
 $page_title = "KGB Team - official website!";
 include "includes/header.php";
 
+if(!$is_auth) {
+    header('Location: login.php');
+}
+
 ?>
 <?php if (isset($_GET['m'])): ?>
     <div class="alert-box success">

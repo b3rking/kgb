@@ -8,6 +8,11 @@ include "includes/header.php";
     <section class="pega_form">
         <form action="src/app.php?action=login" method="post">
             <h1>Start here...</h1>
+            <?php if(isset($_GET['errors'])): ?>
+                <div class="alert-box error">
+                    <?php echo $_GET['errors']; ?>
+                </div>
+            <?php endif ?>
             <div class="inputBox">
                 <input type="username" name="username" required>
                 <label>username</label>

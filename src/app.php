@@ -77,12 +77,24 @@ if(isset($action) && !empty($action)) {
 
         case "login":
             $username = $_POST['username'];
-            $log = new Auth();
-            if($log->login($username)) {
-                echo "done";
-            } else {
-                echo "failed";
+            $user_password = $_POST['password'];
+            $query = "select username, password from users where username=:username";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':username', $username);
+            $result = $stmt->execute();
+            while($res = $stmt->fetch(PDO::FETCH_ASSOC)){
+                extract($res);
             }
+            if($user_password == $password) {
+                $log = new Auth();
+                if($log->login($username)) {
+                    header('Location: ../index.php');
+                }
+            } else {
+                $errors = "sorry, i don't recognize you";
+                header('Location: ../login.php?errors='.$errors);
+            }
+
             break;
 
         case "logout":

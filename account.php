@@ -25,8 +25,15 @@ if (isset($_GET['id'])) {
 
 $user = $user->getOne($id);
 
+if(!$is_auth) {
+    header('Location: login.php');
+}
+
 $page_title = "User personal page - KGB Team";
-include "includes/header.php"; 
+include "includes/header.php";
+
+
+
 ?>
 
 

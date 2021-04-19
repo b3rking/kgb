@@ -37,7 +37,7 @@ class Auth
         $cookie = new CookieManager();
         $session = new SessionManager();
         if($cookie->setCookie('username', $username, 30)) {
-            if (isset($_COOKIE['username']) && isset($_COOKIE['user_id'])) {
+            if (isset($_COOKIE['username'])) {
                 $session->setSession('username', $username);
             }
             $bool = true;
@@ -51,14 +51,14 @@ class Auth
     /**
      * logout fonction
      *
-     * @return bool
+     * @return void
      */
     public function logout():void
     {
         $cookie = new CookieManager();
         $session = new SessionManager();
 
-        $cookie->deleteCookie('username');
+        $cookie->setCookie('username', "", - 3600);
         $session->deleteSession();
     }
 
@@ -72,8 +72,8 @@ class Auth
 
     public function is_auth():bool
     {
-        if(isset($_COOKIE['username'])) {
-            if(!empty($_COOKIE['username'])) {
+        if(isset($_SESSION['username'])) {
+            if(!empty($_SESSION['username'])) {
                 return true;
             } else {
                 return false;

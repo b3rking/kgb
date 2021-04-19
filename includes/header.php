@@ -1,12 +1,14 @@
 <?php
 
 use src\classes\Auth;
+use src\classes\CookieManager;
 
 require_once 'vendor/autoload.php';
 
 $auth = new Auth();
 $is_auth = $auth->is_auth();
-$cookie = new \src\classes\CookieManager();
+
+$cookie = new CookieManager();
 $username = $cookie->getCookie('username');
 
 ?>
