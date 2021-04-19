@@ -25,9 +25,13 @@ if (isset($_GET['id'])) {
 
 $user = $user->getOne($id);
 
-if(!$is_auth) {
-    header('Location: login.php');
-}
+// fix the login problem on the account page!
+
+
+//
+//if(!$is_auth) {
+//    header('Location: login.php');
+//}
 
 $page_title = "User personal page - KGB Team";
 include "includes/header.php";
@@ -97,6 +101,16 @@ include "includes/header.php";
       <div class="wyswyg">@wyswyg import module....................</div>
       <div class="borderf"></div>
       <form action="src/app.php?action=add_note" method="POST">
+          <?php if(isset($_GET['errors'])): ?>
+              <div class="alert-box error">
+                  <?php echo $_GET['errors']; ?>
+              </div>
+          <?php endif ?>
+          <?php if(isset($_GET['m'])): ?>
+              <div class="alert-box error">
+                  <?php echo $_GET['m']; ?>
+              </div>
+          <?php endif ?>
         <h1>add note</h1>
         <div class="input-box">
           <label for="title">title</label>

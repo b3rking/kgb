@@ -99,7 +99,7 @@ class Validator
     {
         $bool = null;
         if (isset($title)) {
-            if(strlen($title) < 150) {
+            if(strlen($title) < 200) {
                 $bool = true;
             } else {
                 $bool = false;

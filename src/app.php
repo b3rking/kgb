@@ -49,11 +49,11 @@ if(isset($action) && !empty($action)) {
             break;
 
         case "add_note":
-            $validate = new Validator();
-            $_COOKIE['user_id'] = 4;
-            $user_obj = new User($db);
-            if(isset($_COOKIE['user_id'])) {
-                $user_obj = $user_obj->getOne($_COOKIE['user_id']);
+            if(isset($_COOKIE['username'])) {
+                $username = $_COOKIE['username'];
+                $query = 'select id from users where username=:username';
+                $user_obj = $db->prepare($query);
+                $user_obj->bindParam(':username', $username);
                 while ($res = $user_obj->fetch(PDO::FETCH_ASSOC)) {
                     extract($res);
                     $user_id = $id;
@@ -61,17 +61,27 @@ if(isset($action) && !empty($action)) {
             } else {
                 echo "no user found!";
             }
-            $note->title = $_POST['title'];
-            $note->user_id = $user_id;
-            $note->body = $_POST['body'];
+            $validate = new Validator();
+            $_COOKIE['user_id'] = 4;
+            $title_valid = $validate->noteTitle($_POST['title']);
+            $body_valid = $validate->noteBody($_POST['body']);
 
-            if($note->save()) {
-                $message = 'successfuly created your note';
-                header('Location: ../account.php?m='.$message);
-            }
-            else {
-                $error = 'failed to create your note';
-                header('Location: ../account.php?e='.$error);
+            if($title_valid && $body_valid) {
+                $note->title = $title_valid;
+                $note->user_id = $user_id;
+                $note->body = $body_valid;
+
+                if($note->save()) {
+                    $message = 'successfuly created your note';
+                    header('Location: ../account.php?m='.$message);
+                }
+                else {
+                    $errors = 'failed to create your note';
+                    header('Location: ../account.php?errors='.$errors);
+                }
+            } else {
+                $errors = "title has max 200 caracters and body allow up to 1000 caracters!";
+                header('Location: account.php?errors='.$errors);
             }
             break;
 
@@ -112,7 +122,7 @@ if(isset($action) && !empty($action)) {
         default:
             echo "don't play with me, i can see u!(0_0)";
             break;
-    }
-} else {
-    header("Location: ../index.php");
-}
+    }}
+//} else {
+//    header("Location: ../index.php");
+//}

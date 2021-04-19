@@ -1,0 +1,4 @@
+
+fix the auto redirect on account page while trying to add new note
+fix redirection and login not working on account page
+create the upload class
