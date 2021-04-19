@@ -7,7 +7,9 @@ include "includes/header.php"; ?>
         <form action="src/app.php?action=add_user" method="POST">
             <h1>Complete this form to sign up</h1>
             <?php if(isset($_GET['errors'])): ?>
-                <?php var_dump($_GET['errors']); ?>
+                <div class="alert-box error">
+                    <?php echo $_GET['errors']; ?>
+                </div>
             <?php endif ?>
             <div class="inputBox">
                 <input type="text" name="fullname" required>

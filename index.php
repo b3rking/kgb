@@ -22,8 +22,13 @@ $page_title = "KGB Team - official website!";
 include "includes/header.php";
 
 ?>
-
+<?php if (isset($_GET['m'])): ?>
+    <div class="alert-box success">
+        welcome <strong><?php echo $_GET['m']; ?></strong> on KGB Team official website!
+    </div>
+<?php endif ?>
   <section class="body-container">
+
     <div class="kgb_members">
       <div class="kgb_members_header">
         <h2>our actual members</h2>

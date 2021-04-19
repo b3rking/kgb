@@ -34,9 +34,9 @@ if(isset($action) && !empty($action)) {
                     $user->password = $_POST['password'];
                     if($user->save()) {
                         // redirect to the home page
-                        header('Location: ../index.php');
+                        header('Location: ../index.php?m='.$user->username);
                         // with the success message in get
-                        // sign in the user automaticaly
+                        // sign in the user
                         $response = json_encode(['message' => 'success']);
                     } else {
                         // return back to the formular

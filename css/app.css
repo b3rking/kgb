@@ -33,7 +33,33 @@ html {
     color: var(--text-color);
 }
 
+/* alert boxes */
 
+.alert-box {
+    display: block;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+    border-radius: 5px;
+}
+
+.success {
+    background-color: var(--success);
+    color: var(--success-text);
+}
+
+.error {
+    background-color: var(--errors);
+    color: var(--errors-text);
+}
+
+.warning {
+    background-color: var(--warnings);
+    color: var(--warnings-text);
+}
+
+/* end of alert boxes syling */
 .nav-bar {
     background-color: var(--main-color);
     color: var(--text-color);
