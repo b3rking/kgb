@@ -1,6 +1,6 @@
 <?php
 // starting sessions
-
+session_start();
 // include classes and objects
 
 use src\config\Database;
@@ -27,16 +27,12 @@ $user = $user->getOne($id);
 
 // fix the login problem on the account page!
 
-
-//
-//if(!$is_auth) {
-//    header('Location: login.php');
-//}
-
 $page_title = "User personal page - KGB Team";
 include "includes/header.php";
 
-
+if(!$is_auth) {
+   header('Location: login.php');
+}
 
 ?>
 
