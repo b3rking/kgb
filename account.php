@@ -24,12 +24,6 @@ if(!$is_auth) {
    header('Location: login.php');
 }
 
-// if (isset($_GET['username']) || isset($_GET['m']) || isset($_GET['errors'])) {
-//   $id = $_GET['id'];
-// } else {
-//   header("Location: index.php");
-// }
-
 $user = $user->getOne($_COOKIE['username']);
 
 ?>
