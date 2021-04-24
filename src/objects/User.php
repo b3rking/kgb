@@ -85,6 +85,30 @@ class User {
 
     /**
      * 
+     *  fonction pour retourner un seul utilisateur
+     * 
+     *  fonction qui permet de renvoyer un seul utilisateur depuis la base de *     données
+     *
+     * @param int $id numero de l'utilisateur!
+     *  
+     *  @return array
+     */
+
+    public function getOneById(int $id) {
+
+        $query = "SELECT * FROM users WHERE id =:id";
+        $data = $this->conn->prepare($query);
+
+        $data->bindParam(':id', $id);
+        $data->execute();
+
+        return $data;
+    }
+    
+
+
+    /**
+     * 
      *  fonction pour enregistrer un utilisateur
      * 
      *  fonction qui permet d'ajouter un nouveau utilisateur dans la base de       *  données 

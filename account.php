@@ -6,6 +6,7 @@ session_start();
 use src\config\Database;
 use src\objects\Note;
 use src\objects\User;
+use src\classes\Auth;
 
 require_once 'vendor/autoload.php';
 
@@ -26,8 +27,18 @@ if(!$is_auth) {
 
 $user = $user->getOne($_COOKIE['username']);
 
-?>
+if(isset($_GET['id']) && !empty($_GET['id'])) {
+  $owner_object = new User($db);
+  $ow = $owner_object->getOneById($_GET['id']);
+  while($res = $ow->fetch(PDO::FETCH_ASSOC)) {
+    extract($res);
+  }
+  $owner_username = $username;
+}
 
+$owner = new Auth();
+
+?>
 
 <section class="pega1">
   <div class="Post_details">
@@ -36,6 +47,10 @@ $user = $user->getOne($_COOKIE['username']);
       <?php 
       while($res = $user->fetch(PDO::FETCH_ASSOC)): 
       extract($res);
+      ?>
+      <?php 
+      $is_owner = $owner->is_owner($owner_username, $username); 
+      echo $is_owner;
       ?>
       <h1><?php echo $username; ?></h1>
       <h3><?php echo $fullname; ?></h3>
