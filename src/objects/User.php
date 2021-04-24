@@ -65,16 +65,18 @@ class User {
      *  fonction pour retourner un seul utilisateur
      * 
      *  fonction qui permet de renvoyer un seul utilisateur depuis la base de *     données
+     *
+     * @param string $username nom de l'utilisateur!
      *  
      *  @return array
      */
 
-    public function getOne($id) {
+    public function getOne(string $username) {
 
-        $query = "SELECT * FROM users WHERE id =:id";
+        $query = "SELECT * FROM users WHERE username =:username";
         $data = $this->conn->prepare($query);
 
-        $data->bindParam(':id', $id);
+        $data->bindParam(':username', $username);
         $data->execute();
 
         return $data;

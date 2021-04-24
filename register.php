@@ -5,7 +5,7 @@ include "includes/header.php"; ?>
 
     <section class="pega_form">
         <form action="src/app.php?action=add_user" method="POST">
-            <h1>Complete this form to sign up</h1>
+            <h1>Complete this form to join us</h1>
             <?php if(isset($_GET['errors'])): ?>
                 <div class="alert-box error">
                     <?php echo $_GET['errors']; ?>

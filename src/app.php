@@ -50,39 +50,41 @@ if(isset($action) && !empty($action)) {
 
         case "add_note":
             if(isset($_COOKIE['username'])) {
+                $title = $_POST['title'];
+                $body = $_POST['body'];
                 $username = $_COOKIE['username'];
-                $query = 'select id from users where username=:username';
-                $user_obj = $db->prepare($query);
-                $user_obj->bindParam(':username', $username);
-                while ($res = $user_obj->fetch(PDO::FETCH_ASSOC)) {
+                $data = $user->getOne($username);
+
+                while ($res = $data->fetch(PDO::FETCH_ASSOC)) {
                     extract($res);
                     $user_id = $id;
+                }
+
+                $validate = new Validator();
+                $title_valid = $validate->noteTitle($_POST['title']);
+                $body_valid = $validate->noteBody($_POST['body']);
+
+                if($title_valid && $body_valid) {
+                    $note->title = $title;
+                    $note->user_id = $user_id;
+                    $note->body = $body;
+
+                    if($note->save()) {
+                        $message = 'successfuly created your note';
+                        header('Location: ../account.php?m='.$message);
+                    }
+                    else {
+                        $errors = 'failed to create your note';
+                        header('Location: ../account.php?errors='.$errors);
+                    }
+                } else {
+                    $errors = "title has max 200 caracters and body allow up to 1000 caracters!";
+                    header('Location: account.php?errors='.$errors);
                 }
             } else {
                 echo "no user found!";
             }
-            $validate = new Validator();
-            $_COOKIE['user_id'] = 4;
-            $title_valid = $validate->noteTitle($_POST['title']);
-            $body_valid = $validate->noteBody($_POST['body']);
-
-            if($title_valid && $body_valid) {
-                $note->title = $title_valid;
-                $note->user_id = $user_id;
-                $note->body = $body_valid;
-
-                if($note->save()) {
-                    $message = 'successfuly created your note';
-                    header('Location: ../account.php?m='.$message);
-                }
-                else {
-                    $errors = 'failed to create your note';
-                    header('Location: ../account.php?errors='.$errors);
-                }
-            } else {
-                $errors = "title has max 200 caracters and body allow up to 1000 caracters!";
-                header('Location: account.php?errors='.$errors);
-            }
+            
             break;
 
         case "login":
@@ -122,7 +124,8 @@ if(isset($action) && !empty($action)) {
         default:
             echo "don't play with me, i can see u!(0_0)";
             break;
-    }}
-//} else {
-//    header("Location: ../index.php");
-//}
+    }
+} 
+else {
+   header("Location: ../index.php");
+}
