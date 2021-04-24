@@ -17,22 +17,20 @@ $db = $database->getConnection();
 $user = new User($db);
 $note = new Note($db);
 
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-} else {
-  header("Location: index.php");
-}
-
-$user = $user->getOne($id);
-
-// fix the login problem on the account page!
-
 $page_title = "User personal page - KGB Team";
 include "includes/header.php";
 
 if(!$is_auth) {
    header('Location: login.php');
 }
+
+// if (isset($_GET['username']) || isset($_GET['m']) || isset($_GET['errors'])) {
+//   $id = $_GET['id'];
+// } else {
+//   header("Location: index.php");
+// }
+
+$user = $user->getOne($_COOKIE['username']);
 
 ?>
 
@@ -103,7 +101,7 @@ if(!$is_auth) {
               </div>
           <?php endif ?>
           <?php if(isset($_GET['m'])): ?>
-              <div class="alert-box error">
+              <div class="alert-box success">
                   <?php echo $_GET['m']; ?>
               </div>
           <?php endif ?>
