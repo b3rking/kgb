@@ -14,16 +14,7 @@ namespace src\classes;
 class Upload
 {
 
-    public $link;
-    public $destination_folder;
-
-    /**
-     * function which says hello
-     *
-     * @return string
-     */
-
-    public function sayHello() {
-        return "hello i'm upload class!";
-    }
+    private $name;
+    private $size;
+    private $is_uploaded;
 }

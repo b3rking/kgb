@@ -68,7 +68,7 @@ class User {
      *
      * @param string $username nom de l'utilisateur!
      *  
-     *  @return array
+     *  @return object
      */
 
     public function getOne(string $username) {
