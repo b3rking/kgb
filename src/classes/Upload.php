@@ -17,4 +17,11 @@ class Upload
     private $name;
     private $size;
     private $is_uploaded;
+    private $destination;
+
+
+    public function __construct()
+    {
+        // initialisation of the classsssssss....................       
+    }
 }
