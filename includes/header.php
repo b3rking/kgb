@@ -23,7 +23,7 @@ $username = $cookie->getCookie('username');
   <meta name="keywords" content="kgb ult team, kgb burundi, kgb developers team">
   <meta name="author" content="B3rking, pegasus03, and other contributors">
   <title><?= $page_title ?></title>
-  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="css/app.css">
 
   <!-- the uncompressed version to delete after lauching -->
 
@@ -53,6 +53,13 @@ $username = $cookie->getCookie('username');
             <a href="login.php">Login</a>         
           <?php endif ?>
         </div>
+      </div>
+      <div class="responsive">
+        <a href="" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
       </div>
       <div class="second-menu">
         <div class="search_box">
