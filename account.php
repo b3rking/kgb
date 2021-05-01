@@ -30,9 +30,7 @@ $user = $user->getOne($_COOKIE['username']);
 
 <section class="pega1">
   <div class="Post_details">
-    <div class="image">
-       <img class="profile_img" src="img/j.png" alt="">
-    </div>
+    <img class="profile_img" src="../img/j.png" alt="" width="150" height="150">
     <div class="post_textes">
       <?php
       while ($res = $user->fetch(PDO::FETCH_ASSOC)) :
@@ -43,6 +41,8 @@ $user = $user->getOne($_COOKIE['username']);
         <p><?php echo $bio; ?></p>
         <p><strong><em><?php echo $status; ?></em></strong></p>
       <?php endwhile ?>
+    </div>
+    <div class="boutons">
       <a href="">Modify</a>
     </div>
   </div>

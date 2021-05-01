@@ -37,7 +37,7 @@ if(!$is_auth) {
 
     <div class="kgb_members">
       <div class="kgb_members_header">
-        <h2>Our actual member</h2>
+        <h2>our actual member</h2>
       </div>
       <?php 
       while ($res = $list_user->fetch(PDO::FETCH_ASSOC)) : 
@@ -45,7 +45,7 @@ if(!$is_auth) {
       ?>
       <div class="user">
         <div class="user-data">
-          <img src="img/j.png" alt="username - profile pic">
+          <img src="../img/j.png" alt="username - profile pic">
           <div class="user-data_names">
             <p class="fullname"><?php echo $fullname; ?></p>
             <p class="username">@<?php echo $username; ?></p>
@@ -55,23 +55,18 @@ if(!$is_auth) {
           <a href="account.php?id=<?php echo $id; ?>">his diary</a>
         </div>
       </div>
-      <span class="baruser"></span>
       <?php endwhile ?>
 
     </div>
     <div class="recent_post">
-      <h2 class="label_post">Recent post from membersssss</h2>
+      <h2>recent post from membersssss</h2>
       <?php 
       while ($res = $list_note->fetch(PDO::FETCH_ASSOC)) : 
       extract($res);
       ?>
       <div class="notes">
-        <div class="label_title">
-        <h2 class="label_h2"><?php echo $title; ?></h2>
-        </div>
-        <div class="content">
+        <h2><?php echo $title; ?></h2>
         <p><?php echo $body; ?></p>
-        </div>
       </div>
       <?php endwhile ?>
     </div>
