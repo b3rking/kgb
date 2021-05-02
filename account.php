@@ -46,63 +46,67 @@ $user = $user->getOne($_COOKIE['username']);
       <a href="">Modify</a>
     </div>
   </div>
-  <form action="src/app.php?action=update" method="POST">
-    <div class="input-box">
-      <label for="username">username</label>
-      <input type="text" name="username">
-    </div>
 
-    <div class="input-box">
-      <label for="fullname">fullname</label>
-      <input type="text" name="fullname">
-    </div>
 
-    <div class="input-box">
-      <label for="email">email</label>
-      <input type="email" name="email">
+<div class="modal_bg">
+    
+</div>
+<div class="modal_container">
+  <div class="modal_body">
+    <div class="modal_header">
+      <h3>Modify</h3>
+      <span class='modal_x'> X </span>
     </div>
+    <form action="src/app.php?action=update" method="POST">
+        <div class="input-box">
+          <label for="username">username</label>
+          <input class="inputBox" class="inp" type="text" name="username">
+        </div>
 
-    <div class="input-box">
-      <label for="status">status</label>
-      <input type="text" name="status">
-    </div>
+        <div class="input-box">
+          <label for="fullname">fullname</label>
+          <input  class="inputBox" type="text" name="fullname">
+        </div>
 
-    <div class="input-box">
-      <label for="password">password</label>
-      <input type="password" name="password">
-    </div>
+        <div class="input-box">
+          <label for="email">email</label>
+          <input  class="inputBox" type="email" name="email">
+        </div>
 
-    <div class="input-box">
-      <label for="fullname">profile pic</label>
-      <input type="file" name="profile_pic">
-    </div>
+        <div class="input-box">
+          <label for="status">status</label>
+          <input  class="inputBox" type="text" name="status">
+        </div>
 
-    <textarea name="bio" cols="30" rows="10">here goes your bio!</textarea>
-    <button type="submit" class="btn">update user</button>
-  </form>
+        <div class="input-box">
+          <label for="password">password</label>
+          <input  class="inputBox" type="password" name="password">
+        </div>
+
+        <div class="input-box">
+          <label for="fullname">profile pic</label>
+          <input  class="inputBox" type="file" name="profile_pic">
+        </div>
+
+        <textarea  class="inputBox" name="bio"  cols="30" rows="10">here goes your bio!</textarea>
+        <button type="submit" class="btn">update user</button>
+      </form>
+  </div>
+</div>
+  
+
+
 
   <div class="diary_interface">
     <h1 class="title_di">Diary Poster Interface</h1>
     <div class="interface">
       <form action="src/app.php?action=add_note" method="POST">
-        <?php if (isset($_GET['errors'])) : ?>
-          <div class="alert-box error">
-            <?php echo $_GET['errors']; ?>
-          </div>
-        <?php endif ?>
-        <?php if (isset($_GET['m'])) : ?>
-          <div class="alert-box success">
-            <?php echo $_GET['m']; ?>
-          </div>
-        <?php endif ?>
-        <h1>add note</h1>
         <div class="input-box">
           <label for="title">title</label>
           <input type="text" name="title" id="title">
         </div>
-        <div class="input-box">
-          <label for="body">notes</label>
-          <textarea name="body" id="amazing_text" cols="30" rows="10"></textarea>
+        <div class=""">
+          <textarea name="body" class="amazing_text" cols="30" rows="10"></textarea>
         </div>
         <button type="submit" class="btn">post notes</button>
       </form>
@@ -111,7 +115,7 @@ $user = $user->getOne($_COOKIE['username']);
 </section>
 <script>
   ClassicEditor
-    .create(document.querySelector('#amazing_text'), {
+    .create(document.querySelector('.amazing_text'), {
       toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
         heading: {
             options: [
