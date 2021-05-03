@@ -14,6 +14,17 @@ namespace src\classes;
 class Upload
 {
 
+    /**
+     * 
+     * 
+     * check if the file is valid (not a php file)
+     * check the size(less than 1mb)
+     * check if file exist
+     * rename the file before upload (username + profile_pic)
+     * upload the file
+     * 
+     */
+
     private $name;
     private $size;
     private $is_uploaded;

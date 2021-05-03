@@ -45,7 +45,7 @@ if(!$is_auth) {
       ?>
       <div class="user">
         <div class="user-data">
-          <img src="img/j.png" alt="username - profile pic">
+          <img src="<?php echo $profile_pic; ?>" alt="username - profile pic" class="avatar">
           <div class="user-data_names">
             <p class="fullname"><?php echo $fullname; ?></p>
             <p class="username">@<?php echo $username; ?></p>

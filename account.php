@@ -30,14 +30,14 @@ $user = $user->getOneById($_GET['id']);
 
 <section class="pega1">
   <div class="Post_details">
+    <?php
+      while ($res = $user->fetch(PDO::FETCH_ASSOC)) :
+      extract($res);
+    ?>
     <div class="image">
-       <img class="profile_img" src="img/j.png" alt="">
+       <img class="avatar" src="<?php echo $profile_pic; ?>" alt="">
     </div>
     <div class="post_textes">
-      <?php
-      while ($res = $user->fetch(PDO::FETCH_ASSOC)) :
-        extract($res);
-      ?>
         <h1><?php echo $username; ?></h1>
         <h3><?php echo $fullname; ?></h3>
         <p><?php echo $bio; ?></p>
@@ -87,8 +87,11 @@ $user = $user->getOneById($_GET['id']);
           <label for="fullname">profile pic</label>
           <input  class="inputBox" type="file" name="profile_pic">
         </div>
-
-        <textarea  id="update" name="bio"  cols="30" rows="10">here goes your bio!</textarea>
+        <div class="input-box">
+          <label for="bio">bio</label>
+          <textarea  id="update" name="bio"  cols="30" rows="10">here goes your bio!</textarea>
+        </div>
+        
         <button type="submit" class="btn">update user</button>
       </form>
   </div>

@@ -7,8 +7,8 @@ document.querySelector('.year').textContent = year;
 
 $(function () {
 	$("#mod").on('click', function() {
-		$(".modal_bg").show();
-		$(".modal_container").show();
+		$(".modal_bg").fadeIn(1000);
+		$(".modal_container").slideDown(1000);
 	});
 	$(".modal_x").on('click', function() {
 		$(".modal_bg").fadeOut(1000);
