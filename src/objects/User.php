@@ -91,7 +91,7 @@ class User {
      *
      * @param int $id numero de l'utilisateur!
      *  
-     *  @return array
+     *  @return object
      */
 
     public function getOneById(int $id) {

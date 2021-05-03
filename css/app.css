@@ -634,7 +634,7 @@ body{
 }
 
 /** fix modal from account when we modify account pega**/
-/*
+
 .modal_bg{
    position: fixed;
    left: 0;
@@ -658,9 +658,10 @@ body{
     right: 0;
     left: 0;
     background:var(--text-color);
+    border-radius: .5rem;
     box-shadow: 0px 0px 2rem 2px rgba(128, 128, 128, 0.2);
     padding: 15px;
-}*/
+}
 
 @media (max-width: 2000px){
     .modal_body{
@@ -683,9 +684,9 @@ body{
     }
 
 .modal_header{
-    background:var(--primary-color);
+    background:var(--main-color);
     padding:2px 2px 2px 10px;
-    color: var(--default-color);
+    color: var(--text-color);
     border-radius:5px;
     position: relative;
     margin-bottom: 10px;
@@ -697,6 +698,7 @@ body{
     right: 15px;
     transform: translateY(-50%);
     cursor: pointer;
+    font-size: 2.5rem;
 }
 .interface{
     padding: 5px;

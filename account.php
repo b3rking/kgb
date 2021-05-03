@@ -25,7 +25,7 @@ if (!$is_auth) {
   header('Location: login.php');
 }
 
-$user = $user->getOne($_COOKIE['username']);
+$user = $user->getOneById($_GET['id']);
 ?>
 
 <section class="pega1">
@@ -43,7 +43,7 @@ $user = $user->getOne($_COOKIE['username']);
         <p><?php echo $bio; ?></p>
         <p><strong><em><?php echo $status; ?></em></strong></p>
       <?php endwhile ?>
-      <a href="">Modify</a>
+      <a href="#" id="mod">Modify</a>
     </div>
   </div>
 
@@ -54,8 +54,8 @@ $user = $user->getOne($_COOKIE['username']);
 <div class="modal_container">
   <div class="modal_body">
     <div class="modal_header">
-      <h3>Modify</h3>
-      <span class='modal_x'> X </span>
+      <h3>Update your profile</h3>
+      <span class='modal_x'><i class="far fa-window-close"></i></span>
     </div>
     <form action="src/app.php?action=update" method="POST">
         <div class="input-box">
@@ -88,7 +88,7 @@ $user = $user->getOne($_COOKIE['username']);
           <input  class="inputBox" type="file" name="profile_pic">
         </div>
 
-        <textarea  class="inputBox" name="bio"  cols="30" rows="10">here goes your bio!</textarea>
+        <textarea  id="update" name="bio"  cols="30" rows="10">here goes your bio!</textarea>
         <button type="submit" class="btn">update user</button>
       </form>
   </div>
@@ -105,29 +105,13 @@ $user = $user->getOne($_COOKIE['username']);
           <label for="title">title</label>
           <input type="text" name="title" id="title">
         </div>
-        <div class=""">
-          <textarea name="body" class="amazing_text" cols="30" rows="10"></textarea>
+        <div>
+          <textarea name="body" id="amazing_text" cols="30" rows="10"></textarea>
         </div>
         <button type="submit" class="btn">post notes</button>
       </form>
     </div>
   </div>
 </section>
-<script>
-  ClassicEditor
-    .create(document.querySelector('.amazing_text'), {
-      toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-        heading: {
-            options: [
-                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-            ]
-        }
-    })
-    .catch(error => {
-      console.error(error);
-    });
-</script>
 
 <?php include "includes/footer.php"; ?>
