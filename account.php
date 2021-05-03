@@ -48,10 +48,10 @@ $user = $user->getOneById($_GET['id']);
   </div>
 
 
-<div class="modal_bg">
+<div class="modal_bg" style="display: none">
     
 </div>
-<div class="modal_container">
+<div class="modal_container" style="display: none">
   <div class="modal_body">
     <div class="modal_header">
       <h3>Update your profile</h3>

@@ -4,12 +4,19 @@ let year = date.getFullYear();
 
 document.querySelector('.year').textContent = year;
 
+
 $(function () {
-	$(".modal_container").hide();
 	$("#mod").on('click', function() {
+		$(".modal_bg").show();
 		$(".modal_container").show();
 	});
+	$(".modal_x").on('click', function() {
+		$(".modal_bg").fadeOut(1000);
+		$(".modal_container").fadeOut(1000);
+	});
 });
+
+
 //js by pegaus for fixing accordion on recent_diarypost
 
 const accordion = document.getElementsByClassName('notes');
