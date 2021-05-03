@@ -9,6 +9,7 @@ use src\config\Database;
 use src\classes\Validator;
 use src\objects\Note;
 use src\objects\User;
+use src\classes\Upload;
 
 // get database connection
 
@@ -117,8 +118,8 @@ if(isset($action) && !empty($action)) {
             break;
 
         case "update":
-
-            echo "i'm gonna update someone face! :)";
+            
+            $up = new Upload('nma', 1000, 'uploads');
             break;
 
         default:

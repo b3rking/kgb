@@ -517,11 +517,7 @@ body{
     height: 220px;
 }
 
-
-
-
 .title_di{
-    border-bottom: 2px solid rgba(119, 119, 119, 0.2);
     padding:5px;
     font-size: 24px;
     text-align: center;
@@ -531,7 +527,6 @@ body{
     padding:16px;
     border-bottom: 2px solid rgba(119, 119, 119, 0.2);
 }
-
 
 
 /***** css for form by pegaus03 **/

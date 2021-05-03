@@ -23,6 +23,13 @@ class Upload
      * rename the file before upload (username + profile_pic)
      * upload the file
      * 
+     * @package src/classes
+     * @author b3rking
+     * 
+     * @param string $name le nom du fichier
+     * @param int $size la taille du fichier
+     * @param string $destination le dossier de destination
+     * 
      */
 
     private $name;
@@ -30,9 +37,15 @@ class Upload
     private $is_uploaded;
     private $destination;
 
-
-    public function __construct()
+    /**
+     * 
+     * initialisation de la classe upload!
+     * 
+     */
+    public function __construct($name, $size, $destination)
     {
-        // initialisation of the classsssssss....................       
+        $this->name = $name;
+        $this->size = $size;
+        $this->destination = $destination;
     }
 }

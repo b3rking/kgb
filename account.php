@@ -57,7 +57,7 @@ $user = $user->getOneById($_GET['id']);
       <h3>Update your profile</h3>
       <span class='modal_x'><i class="far fa-window-close"></i></span>
     </div>
-    <form action="src/app.php?action=update" method="POST">
+    <form action="src/app.php?action=update" method="POST" enctype="multipart/form-data">
         <div class="input-box">
           <label for="username">username</label>
           <input class="inputBox" class="inp" type="text" name="username">
@@ -101,7 +101,7 @@ $user = $user->getOneById($_GET['id']);
 
 
   <div class="diary_interface">
-    <h1 class="title_di">Diary Poster Interface</h1>
+    <h1 class="title_di">Share your journee bro (>_<)</h1>
     <div class="interface">
       <form action="src/app.php?action=add_note" method="POST">
         <div class="input-box">
@@ -111,7 +111,7 @@ $user = $user->getOneById($_GET['id']);
         <div>
           <textarea name="body" id="amazing_text" cols="30" rows="10"></textarea>
         </div>
-        <button type="submit" class="btn">post notes</button>
+        <button type="submit" class="btn">share my journee...</button>
       </form>
     </div>
   </div>
