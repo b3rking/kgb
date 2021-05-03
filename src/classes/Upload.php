@@ -33,19 +33,122 @@ class Upload
      */
 
     private $name;
+    private $type;
     private $size;
-    private $is_uploaded;
-    private $destination;
+    private $upload;
+    private $tmp_name;
 
     /**
      * 
      * initialisation de la classe upload!
      * 
      */
-    public function __construct($name, $size, $destination)
+    public function __construct($name, $type, $size)
     {
         $this->name = $name;
+        $this->type = $type;
         $this->size = $size;
-        $this->destination = $destination;
+        $this->upload = false;
+    }
+
+    /**
+     * 
+     * check if it's an actual image
+     * 
+     * @return bool
+     */
+
+    public function is_image() {
+        $check = getimagesize($this->tmp_name);
+        if($check !== false) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 
+     * 
+     * check if file exists
+     * 
+     * @return bool
+     */
+
+    public function exists() {
+        if (file_exists($this->name)) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+
+    /**
+     * 
+     * allowing certain format of images
+     * 
+     * @return bool
+     */
+
+    public function is_allowed() {
+        if($this->type != 'jpg' && 
+            $this->type != 'jpeg' &&
+            $this->type != 'png' &&
+            $this->type != 'gif') {
+                return false;
+            }
+        else {
+            return true;
+        }
+    }
+
+    /**
+     * 
+     * 
+     * check if upload is ok
+     * 
+     * @return bool
+     */
+
+    public function is_uploaded() {
+        if ($this->upload) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 
+     * check the size of the file
+     * 
+     * @return bool
+     */
+
+    public function check_size() {
+        if($this->size >= 1000000) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * 
+     * 
+     * try uploading file to the server!
+     * 
+     * @return bool
+     */
+
+    public function try_uploading() {
+        if(move_uploaded_file($this->tmp_name, $this->name)) {
+            $this->upload = true;
+            return true;
+        } else {
+            $this->upload = false;
+            return false;
+        }
     }
 }
