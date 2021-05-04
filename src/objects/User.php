@@ -159,11 +159,11 @@ class User {
      *  @return array
      */
 
-    public function update($id) {
+    public function update($username) {
 
         // the query to be executed
 
-        $query = "UPDATE users SET id=:id, fullname=:fullname, email=:email, username=:username, password=:password, joined=:joined, status=:status, bio=:bio, profile_pic=:profile_pic WHERE id =:id";
+        $query = "UPDATE users SET id=:id, fullname=:fullname, email=:email, username=:username, password=:password, joined=:joined, status=:status, bio=:bio, profile_pic=:profile_pic WHERE username =:username";
         $data = $this->conn->prepare($query);
 
         // escaping special character

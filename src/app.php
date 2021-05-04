@@ -11,6 +11,7 @@ use src\objects\Note;
 use src\objects\User;
 use src\classes\Upload;
 
+
 // get database connection
 
 $database = new Database();
@@ -119,48 +120,70 @@ if(isset($action) && !empty($action)) {
 
         case "update":
             
-            use src\classes\Upload;
+            if(isset($_FILES['profile_pic']) || isset($_POST['name'])) {
+                $target = 'uploads/';
+                $name = $target . basename($_FILES['profile_pic']['name']);
+                $type = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+                $size = $_FILES['profile_pic']['size'];
+                $tmp_name = $_FILES['profile_pic']['tmp_name'];
 
-if(isset($_FILES['file']) || isset($_POST['name'])) {
-    $target = 'uploads/';
-    $name = $target . basename($_FILES['file']['name']);
-    $type = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-    $size = $_FILES['file']['size'];
-    $tmp_name = $_FILES['file']['tmp_name'];
+                $upload_class = new Upload($name, $type, $size, $tmp_name);
 
-    $upload_class = new Upload($name, $type, $size, $tmp_name);
-
-    // check if it's an image
-    if($upload_class->is_image()) {
-        // check if file already exist
-        if($upload_class->exists()) {
-            // check if file is allowed
-            if($upload_class->is_allowed()) {
-                // try uploading
-                $upload_class->try_uploading();
-                //check if it's uploaded
-                if($upload_class->is_uploaded()) {
-                    echo "file is uploaded";
+                // check if it's an image
+                if($upload_class->is_image()) {
+                    // check if file already exist
+                    if($upload_class->exists()) {
+                        // check if file is allowed
+                        if($upload_class->is_allowed()) {
+                            // try uploading
+                            $upload_class->try_uploading();
+                            //check if it's uploaded
+                            if($upload_class->is_uploaded()) {
+                                echo "file is uploaded";
+                            } else {
+                                echo "not uploaded!";
+                            }
+                        } else {
+                            echo "your format is not allowed!";
+                        }
+                    } else {
+                        echo "file already exists!";
+                    }
                 } else {
-                    echo "not uploaded!";
+                    echo "your file is not an image!";
                 }
-            } else {
-                echo "your format is not allowed!";
             }
-        } else {
-            echo "file already exists!";
-        }
-    } else {
-        echo "your file is not an image!";
-    }
-}
+
+            // filling the field!
+
+            $validate = new Validator();
+            $user_valid = $validate->Username($_POST['username']);
+
+            if($user_valid) {
+                $user->username = $_POST['username'];
+                $user->fullname = $_POST['fullname'];
+                $user->email = $_POST['email'];
+                $user->profile_pic = $name;
+                $user->bio = $_POST['bio'];
+                $user->status = $_POST['status'];
+
+                if($user->update($_COOKIE['username'])) {
+                    header('Location: ../account.php?id='.$_GET['id']);
+                    $log = new Auth();
+                    $log->login($user->username);
+                }
+
+            } else {
+                $errors = 'username must contain min 5 caracters and max 20 caracters';
+                header('Location: ../account.php?errors='.$errors);
+            }
             break;
 
         default:
             echo "don't play with me, i can see u!(0_0)";
             break;
     }
-} 
+}
 else {
    header("Location: ../index.php");
 }

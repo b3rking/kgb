@@ -79,11 +79,6 @@ $user = $user->getOneById($_GET['id']);
         </div>
 
         <div class="input-box">
-          <label for="password">password</label>
-          <input class="inputBox" type="password" name="password">
-        </div>
-
-        <div class="input-box">
           <label for="fullname">profile pic</label>
           <input class="inputBox" type="file" name="profile_pic">
         </div>
@@ -96,9 +91,6 @@ $user = $user->getOneById($_GET['id']);
       </form>
     </div>
   </div>
-
-
-
 
   <div class="diary_interface">
     <h1 class="title_di">Share your journee bro (>_<)< /h1>
