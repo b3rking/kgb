@@ -43,12 +43,13 @@ class Upload
      * initialisation de la classe upload!
      * 
      */
-    public function __construct($name, $type, $size)
+    public function __construct($name, $type, $size, $tmp_name)
     {
         $this->name = $name;
         $this->type = $type;
         $this->size = $size;
         $this->upload = false;
+        $this->tmp_name = $tmp_name;
     }
 
     /**

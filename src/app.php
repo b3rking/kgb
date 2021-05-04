@@ -119,7 +119,41 @@ if(isset($action) && !empty($action)) {
 
         case "update":
             
-            $up = new Upload('nma', 1000, 'uploads');
+            use src\classes\Upload;
+
+if(isset($_FILES['file']) || isset($_POST['name'])) {
+    $target = 'uploads/';
+    $name = $target . basename($_FILES['file']['name']);
+    $type = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+    $size = $_FILES['file']['size'];
+    $tmp_name = $_FILES['file']['tmp_name'];
+
+    $upload_class = new Upload($name, $type, $size, $tmp_name);
+
+    // check if it's an image
+    if($upload_class->is_image()) {
+        // check if file already exist
+        if($upload_class->exists()) {
+            // check if file is allowed
+            if($upload_class->is_allowed()) {
+                // try uploading
+                $upload_class->try_uploading();
+                //check if it's uploaded
+                if($upload_class->is_uploaded()) {
+                    echo "file is uploaded";
+                } else {
+                    echo "not uploaded!";
+                }
+            } else {
+                echo "your format is not allowed!";
+            }
+        } else {
+            echo "file already exists!";
+        }
+    } else {
+        echo "your file is not an image!";
+    }
+}
             break;
 
         default:
