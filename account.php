@@ -26,8 +26,7 @@ if (!$is_auth) {
 }
 
 
-$user = $user->getOne($_COOKIE['username']);
-
+$user = $user->getOneById($_GET['id']);
 ?>
 
 <section class="pega1">
