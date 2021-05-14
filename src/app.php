@@ -129,8 +129,10 @@ if(isset($action) && !empty($action)) {
 
                 $upload_class = new Upload($name, $type, $size, $tmp_name);
 
+                $upload_class->try_uploading();
+
                 // check if it's an image
-                if($upload_class->is_image()) {
+                /* if($upload_class->is_image()) {
                     // check if file already exist
                     if($upload_class->exists()) {
                         // check if file is allowed
@@ -151,7 +153,7 @@ if(isset($action) && !empty($action)) {
                     }
                 } else {
                     echo "your file is not an image!";
-                }
+                } */
             }
 
             // filling the field!
@@ -168,14 +170,14 @@ if(isset($action) && !empty($action)) {
                 $user->status = $_POST['status'];
 
                 if($user->update($_COOKIE['username'])) {
+                    /* $log = new Auth();
+                    $log->login($user->username); */
                     header('Location: ../account.php?id='.$_GET['id']);
-                    $log = new Auth();
-                    $log->login($user->username);
                 }
 
             } else {
                 $errors = 'username must contain min 5 caracters and max 20 caracters';
-                header('Location: ../account.php?errors='.$errors);
+                header('Location: ../account.php?errors='.$errors.'&id='.$_GET['id']);
             }
             break;
 
