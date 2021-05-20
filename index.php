@@ -52,7 +52,7 @@ if(!$is_auth) {
           </div>
         </div>
         <div class="link">
-          <a href="account.php?id=<?php echo $id; ?>">his diary</a>
+          <a href="diary.php?id=<?php echo $id; ?>">his diary</a>
         </div>
       </div>
       <span class="baruser"></span>

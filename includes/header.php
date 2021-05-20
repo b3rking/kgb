@@ -53,6 +53,7 @@ $username = $cookie->getCookie('username');
           <a href="index.php">Home</a>
           <?php if($is_auth == 1): ?>
             <a href="../src/app.php?action=logout">logout <?php echo $username; ?></a>
+            <a href="../account.php">account</a>
           <?php else: ?>
             <a href="login.php">Login</a>         
           <?php endif ?>

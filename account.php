@@ -25,8 +25,7 @@ if (!$is_auth) {
   header('Location: login.php');
 }
 
-
-$user = $user->getOneById($_GET['id']);
+$user = $user->getOne($_COOKIE['username']);
 ?>
 
 <section class="pega1">
