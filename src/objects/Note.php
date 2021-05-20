@@ -79,6 +79,26 @@ class Note {
         return $data;
     }
 
+    /**
+     * 
+     *  fonction pour retourner la liste des notes d'un user en particulier
+     * 
+     *  fonction qui permet de renvoyer des notes d'un seul utilisateur depuis la base de *     données
+     *  
+     *  @return object
+     */
+
+    public function getOneById($id) {
+
+        $query = "SELECT * FROM notes WHERE user_id =:id";
+        $data = $this->conn->prepare($query);
+
+        $data->bindParam(':id', $id);
+        $data->execute();
+
+        return $data;
+    }
+
 
     /**
      * 

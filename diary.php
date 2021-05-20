@@ -25,7 +25,7 @@ if (!$is_auth) {
   header('Location: login.php');
 }
 
-$list_note = $note->all();
+$list_note = $note->getOneById($_GET['id']);
 ?>
 <section>
     <div class="recent_post">
